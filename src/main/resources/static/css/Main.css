@@ -1,0 +1,88 @@
+body {
+    margin: 0;
+    padding: 0;
+
+}
+
+.mainMenu a:before, .mainMenu a:after {
+    content: "";
+    position: absolute;
+    height: 4px;
+    right: 50%;
+    top: 55px;
+    left: 50%;
+    background: #feb386;
+    transition: .8s;
+
+}
+
+.mainMenu a:hover:before {
+    left: 0;
+}
+
+.mainMenu a:hover:after {
+    right: 0;
+}
+
+.mainMenu a {
+    text-decoration: none;
+    font-family: 'Ubuntu Condensed', sans-serif;
+    letter-spacing: 2px;
+    position: relative;
+    padding-bottom: 20px;
+    font-size: 15px;
+    text-transform: uppercase;
+    display: inline-block;
+    transition: color .2s;
+}
+
+.mainMenu > nav > div > ul > li {
+    margin-left: 20px;
+    padding-bottom: 6px;
+    padding-top: 6px;
+}
+
+.emblem > img {
+    margin-left: 15%;
+    margin-top: 2%;
+}
+
+.accaunt > button {
+    margin-left: 15%;
+    margin-top: 20px;
+    margin-bottom: 2%;
+}
+
+.tableOne {
+    margin-top: 15%;
+}
+
+#canvas_tt5ca67c5aaf85a {
+    margin-left: 50px;
+}
+
+.blockOne {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 78px;
+}
+
+.blockTwo {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+
+.mainBlock {
+    height: 100vh;
+    background-color: #34383b;
+}
+
+.img-fluid {
+margin-top: 19px;
+    margin-left: 59px;
+}
+
+#newClassForAccaunt {
+   margin-left: 200px;
+
+}
