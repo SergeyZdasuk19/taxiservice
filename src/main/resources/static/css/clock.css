@@ -2,8 +2,9 @@
 
 .clock {
     position:relative;
+    margin-left: 50px;
     font-family:monaco,consolas,"courier new",monospace;
-    font-size:3.5rem;
+    font-size:3rem;
     line-height:1.375;
 }
 

@@ -29,7 +29,8 @@ body {
     font-family: 'Ubuntu Condensed', sans-serif;
     letter-spacing: 2px;
     position: relative;
-    padding-bottom: 20px;
+    margin-top: 5px;
+    padding-bottom: 10px;
     font-size: 15px;
     text-transform: uppercase;
     display: inline-block;
@@ -39,7 +40,7 @@ body {
 .mainMenu > nav > div > ul > li {
     margin-left: 20px;
     padding-bottom: 6px;
-    padding-top: 6px;
+    padding-top: 5px;
 }
 
 .emblem > img {
