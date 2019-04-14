@@ -2,15 +2,33 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>Spring Security Example </title>
+    <link rel="stylesheet" type="text/css" href="/css/login.css"/>
 </head>
 <body>
-Login page
-<form action="/login" method="post">
-    <div><label> User Name : <input type="text" name="username"/> </label></div>
-    <div><label> Password: <input type="password" name="password"/> </label></div>
-    <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
-    <div><input type="submit" value="Sign In"/></div>
-</form>
-<a href="/registration">Registration</a>
+<div class="mainBlockLogin">
+    <div class="blockFirstLogin">
+
+    </div>
+    <div style="background-color: #6c757d">
+        <form action="/login" method="post" style="padding-top: 120px">
+            <div class="namePage" >
+                Login to continue  <br> or <br>
+                <a class="LoginA" href="/registration">Registration</a>
+            </div>
+            <div class="login" >
+                <input type="text" name="username" placeholder="Login"/>
+            </div>
+            <div class="password">
+                <input type="password" name="password" placeholder="Password"/>
+            </div>
+            <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
+            <div>
+                <input type="submit" value="Sign In"/>
+            </div>
+        </form>
+
+    </div>
+
+</div>
 </body>
 </html>

@@ -1,0 +1,66 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.mainBlockLogin {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    height: 100vh;
+}
+
+.imgLogin {
+    height: 100vh;
+    width: 912px;
+}
+
+.blockFirstLogin {
+    background-image: url("/images/taxi1.jpg");
+    background-size: cover;
+}
+
+.login {
+    height: 110px;
+
+}
+
+input[type=text], input[type=password] {
+    text-align: left;
+    margin-left: 7%;
+    margin-top: 3%;
+    padding: 25px 100px 25px 100px;
+    font-size: 20px;
+    font-family: "Arial Black";
+    border-radius: 15px;
+}
+
+.password {
+    height: 110px;
+    margin: 0px auto;
+}
+
+.namePage {
+    font-size: 30px;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+
+input[type="text"]::-moz-placeholder {
+    font-size: 20px;
+}
+
+input[type=submit] {
+    margin-left: 7%;
+    margin-top: 3%;
+    padding: 15px 170px 15px 170px;
+    font-size: 20px;
+    font-family: "Arial Black";
+    border-radius: 15px;
+    background: #6675df;
+    color: white;
+}
+
+.LoginA {
+    text-decoration: none;
+}

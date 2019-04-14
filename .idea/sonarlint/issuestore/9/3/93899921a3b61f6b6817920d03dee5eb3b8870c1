@@ -1,0 +1,5 @@
+
+esquid:UselessImportCheck	"<Remove this unused import 'javax.transaction.Transactional'.(ûÒçÑúÿÿÿÿ
+wsquid:UselessImportCheck"NRemove this unused import 'org.springframework.data.jpa.repository.Modifying'.(—·Ñ”þÿÿÿÿ
+psquid:UselessImportCheck"LRemove this unused import 'org.springframework.data.repository.query.Param'.(©”šô
+ssquid:UselessImportCheck"JRemove this unused import 'org.springframework.data.jpa.repository.Query'.(Äºöïþÿÿÿÿ
