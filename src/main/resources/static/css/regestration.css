@@ -15,14 +15,20 @@ body {
     text-transform: uppercase;
     display: block;
 }
-.mainBlockLogin {
+.labelReg{
+    font-family: Ubuntu-Bold;
+    font-size: 28px;
+    color:darkorange;
+    text-align: left;
+}
+.mainBlockRegistration {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     height: 100vh;
 }
 
 
-.blockSecondLogin {
+.blockSecondRegistration {
     margin-top: 100px;
     background-color: white;
     height: 430px;
@@ -31,6 +37,8 @@ body {
 
 .login {
     height: 110px;
+    display: grid;
+    grid-template-columns: 2fr 3fr;
 }
 
 input[type=text], input[type=password] {
@@ -38,7 +46,7 @@ input[type=text], input[type=password] {
     border-bottom: 1px solid #feb386;
     text-align: left;
     margin-top: 1%;
-    padding: 25px 120px 25px 120px;
+    padding: 25px 40px 25px 40px;
     font-size: 20px;
     font-family: "Arial";
     color: lightgrey;
@@ -46,7 +54,8 @@ input[type=text], input[type=password] {
 
 .password {
     height: 110px;
-    margin: 0px auto;
+    display: grid;
+    grid-template-columns: 2fr 3fr;
 }
 
 input[type="text"]::-moz-placeholder {
@@ -76,27 +85,4 @@ input[type="text"]::-moz-placeholder {
     box-shadow: 0 3px rgb(33, 147, 90) inset;
 }
 
-.buttonRegestration {
-    display: inline-block;
-    text-decoration: none;
-    margin-left: 9%;
-    margin-top: 3%;
-    padding: 15px 132px 15px 132px;
-    font-size: 20px;
-    font-family: "Arial";
-    border-radius: 3px;
-    border: 0;
-    background: rgb(64, 199, 129);
-    color: white;
-    box-shadow: 0 -3px rgb(53, 167, 110) inset;
-    transition: 0.2s;
-}
 
-.buttonRegestration:hover {
-    background: rgb(53, 167, 110);
-}
-
-.buttonRegestration:active {
-    background: rgb(33, 147, 90);
-    box-shadow: 0 3px rgb(33, 147, 90) inset;
-}

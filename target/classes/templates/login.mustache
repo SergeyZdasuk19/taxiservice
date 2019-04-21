@@ -9,13 +9,12 @@
     <div class="blockFirstLogin">
 
     </div>
-    <div style="background-color: #6c757d">
-        <form action="/login" method="post" style="padding-top: 120px">
-            <div class="namePage" >
-                Login to continue  <br> or <br>
-                <a class="LoginA" href="/registration">Registration</a>
-            </div>
-            <div class="login" >
+    <div class="blockSecondLogin">
+        <div>
+            <span class="title">Account Login</span>
+        </div>
+        <form action="/login" method="post" style="padding-top: 40px">
+            <div class="login">
                 <input type="text" name="username" placeholder="Login"/>
             </div>
             <div class="password">
@@ -23,12 +22,16 @@
             </div>
             <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
             <div>
-                <input type="submit" value="Sign In"/>
+                <input class="buttonSingIn" type="submit" value="Sign In"/>
+            </div>
+            <div>
+                <a class="buttonRegestration" href="/registration">Regestration</a>
             </div>
         </form>
+    </div>
+    <div class="blockThirdLogin">
 
     </div>
-
 </div>
 </body>
 </html>

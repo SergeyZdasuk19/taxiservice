@@ -29,3 +29,13 @@ Z
 *src/main/java/taxiservice/entity/User.java,e\0\e067a91c61a19e2ed0f9a51122492461941111d5
 Z
 *src/main/java/taxiservice/entity/Role.java,3\d\3d1fdce4ff51b59bc61dd9339ba29b63caa2f07d
+S
+#.idea/sonarlint/issuestore/index.pb,9\f\9fe84ebb15faf917b7def6236dba604453cc61e0
+[
++src/main/resources/templates/login.mustache,9\d\9d5ed15d1b6da8366824ef171d3b2a00a2d5ec6e
+^
+.src/main/resources/templates/MyOrders.mustache,a\e\aeec8af6c05a11064f3db5491d09ee74378e7216
+W
+'target/classes/templates/login.mustache,1\4\14131c4c16eded72cff435ea4c6a79ba34eed2fa
+W
+'src/main/resources/static/css/login.css,8\2\82cabd2857303960b8153146cbe8cec683b300fe

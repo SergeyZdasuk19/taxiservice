@@ -2,17 +2,35 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>Spring Security Example </title>
+    <link rel="stylesheet" type="text/css" href="/css/regestration.css"/>
 </head>
 <body>
-Add new user
 {{#message}}
-{{message}}
+    {{message}}
 {{/message}}
-<form action="/registration" method="post">
-    <div><label> User Name : <input type="text" name="username"/> </label></div>
-    <div><label> Password: <input type="password" name="password"/> </label></div>
-    <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
-    <div><input type="submit" value="Sign In"/></div>
-</form>
+<div class="mainBlockRegistration">
+    <div class="blockFirstRegistration"></div>
+    <div class="blockSecondRegistration">
+        <div>
+            <span class="title">Account Registration</span>
+        </div>
+        <form action="/registration" method="post" style="padding-top: 40px">
+            <div class="login">
+               <div style="margin-top: 20px"><label class="labelReg">User name</label></div>
+                <div><input type="text" name="username" placeholder="Login"/></div>
+            </div>
+            <div class="password">
+                <div style="margin-top: 20px"><label  class="labelReg">Password</label></div>
+                <div><input type="password" name="password" placeholder="Password"/></div>
+            </div>
+            <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
+            <div>
+                <input class="buttonSingIn" type="submit" value="Sign In"/>
+            </div>
+        </form>
+    </div>
+    <div class="blockThirdRegistration"></div>
+</div>
+
 </body>
 </html>
