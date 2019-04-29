@@ -53,3 +53,7 @@ W
 'target/classes/templates/hello.mustache,d\1\d11899d579923dd967877f6da017bf8c0cb12f1e
 W
 'src/main/resources/static/css/hello.css,a\0\a05b9efb5b5cc97caf2e6469f92d10acc51d4fd8
+b
+2src/main/resources/static/js/deliveryCalculator.js,a\0\a0b7223d6059260123beb6e70ebfb235c5d5e571
+h
+8src/main/resources/templates/deliveryCalculator.mustache,3\2\323506f1ffbd72c37ed06eef48c6d17d4addd860
