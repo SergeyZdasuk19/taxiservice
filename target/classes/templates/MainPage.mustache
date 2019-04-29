@@ -39,10 +39,9 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbar2">
                         <ul class="navbar-nav mr-auto">
-                            <li class="nav-item active"><a class="nav-link" href="#">Поиск</a></li>
-                            <li><a class="nav-link" href="#">Сервис</a></li>
-                            <li><a class="nav-link" href="#">Перевозчикам</a></li>
-                            <li><a class="nav-link" href="#">FAQ</a></li>
+                            <li class="nav-item active"><a class="nav-link" href="#">Сервис</a></li>
+                            <li><a class="nav-link" href="#">Мои заказы</a></li>
+                            <li><a class="nav-link" href="#">Контакты</a></li>
                         </ul>
                     </div>
                 </nav>
@@ -55,16 +54,36 @@
                         {{user.username}}
                     {{/user}}
                 </button>
+                <button type="submit" class="btn btn-outline-success" onclick="test()">Заказать</button>
             </div>
+
         </div>
     </header>
 
     <div class="blockTwo">
-        <div style="background-color:#34383b;margin-top: 100px;">
-            <span class="clock"></span>
-        </div>
-        <div style="background-color: #34383b;padding-left: 50px">
-            <img src="/images/такси3.jpg" class="img-fluid" style="height: auto;width: 802px">
+        <div></div>
+        <div id="map"></div>
+        <div>
+            <div id="first" class="section" >
+                    <div class="container">
+                        <input type="radio" name="group1" id="radio-1">
+                        <label for="radio-1"><span class="radio">
+                            <img src="/images/sedan-car-model.png"></span>
+                        </label>
+                    </div>
+                    <div class="container">
+                        <input type="radio" name="group1" id="radio-2">
+                        <label for="radio-2"><span class="radio">
+                            <img src="/images/car-of-hatchback-model.png">
+                        </span></label>
+                    </div>
+                    <div class="container">
+                        <input type="radio" name="group1" id="radio-3">
+                        <label for="radio-3"><span class="radio"></span>
+                            <img src="/images/coupe-car.png">
+                        </label>
+                    </div>
+            </div>
         </div>
     </div>
 
@@ -112,6 +131,8 @@
 
 <script src="/js/Main.js"></script>
 <script src="/js/Clockjs.js"></script>
+<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=<ваш API-ключ>" type="text/javascript"></script>
+<script src="/js/deliveryCalculator.js" type="text/javascript"></script>
 </body>
 
 </html>

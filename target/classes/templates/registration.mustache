@@ -3,6 +3,8 @@
 <head>
     <title>Spring Security Example </title>
     <link rel="stylesheet" type="text/css" href="/css/regestration.css"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+          integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 </head>
 <body>
 {{#message}}
@@ -16,11 +18,11 @@
         </div>
         <form action="/registration" method="post" style="padding-top: 40px">
             <div class="login">
-               <div style="margin-top: 20px"><label class="labelReg">User name</label></div>
+               <div style="margin-top: 20px"><label class="labelReg"><i style="padding-left: 30px" class="fas fa-user"></i></label></div>
                 <div><input type="text" name="username" placeholder="Login"/></div>
             </div>
             <div class="password">
-                <div style="margin-top: 20px"><label  class="labelReg">Password</label></div>
+                <div style="margin-top: 20px"><label  class="labelReg"><i style="padding-left: 30px" class="fas fa-unlock-alt"></i></label></div>
                 <div><input type="password" name="password" placeholder="Password"/></div>
             </div>
             <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>

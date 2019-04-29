@@ -46,7 +46,7 @@ input[type=text], input[type=password] {
     border-bottom: 1px solid #feb386;
     text-align: left;
     margin-top: 1%;
-    padding: 25px 40px 25px 40px;
+    padding: 25px 40px 25px 80px;
     font-size: 20px;
     font-family: "Arial";
     color: lightgrey;

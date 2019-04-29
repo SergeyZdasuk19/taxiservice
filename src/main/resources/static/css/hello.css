@@ -6,17 +6,20 @@
     -o-box-sizing: border-box;
     box-sizing: border-box;
 }
-img{
+
+img {
     margin-top: 100px;
     margin-left: 20px;
 }
-.mainBlock{
+
+.mainBlock {
     height: 100vh;
     width: 100%;
     background-image: url("/images/такси4.jpg");
     background-size: cover;
 
 }
+
 .wrapper {
     height: 450px;
     width: 100%;
@@ -24,6 +27,7 @@ img{
 }
 
 .slider {
+    opacity: 0.5;
     height: inherit;
     overflow: hidden;
     position: relative;
@@ -48,26 +52,6 @@ img{
     -moz-transition: transform ease-in-out .5s, opacity ease-in-out .5s;
     -o-transition: transform ease-in-out .5s, opacity ease-in-out .5s;
     transition: transform ease-in-out .5s, opacity ease-in-out .5s;
-}
-
-.slide1 {
-
-}
-
-.slide2 {
-
-}
-
-.slide3 {
-
-}
-
-.slide4 {
-
-}
-
-.slide5 {
-
 }
 
 #slide1:checked ~ .slider > .slide1,
@@ -136,11 +120,12 @@ img{
 .wave {
     font-family: Comic Sans MS, Verdana, monospace;;
     font-size: 50px;
-    color:mediumseagreen;
+    color: mediumseagreen;
     -webkit-animation: 0.5s color infinite;
     animation: 0.5s color infinite;
 }
-.MainButton{
+
+.MainButton {
     display: inline-block;
     text-decoration: none;
     margin-left: 38%;
@@ -155,8 +140,33 @@ img{
     box-shadow: 0 -3px rgb(53, 167, 110) inset;
     transition: 0.2s;
 }
-.slide1{
-    background-color:rgb(255,253,208);
+
+.MainButton:hover {
+    background: rgb(53, 167, 110);
+}
+
+.slide1 {
+    background-color: white;
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+}
+.slide2 {
+    background-color: white;
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+}
+.slide3 {
+    background-color: white;
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+}
+.slide4 {
+    background-color: white;
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+}
+.slide5 {
+    background-color: white;
     display: grid;
     grid-template-columns: 1fr 5fr;
 }

@@ -39,3 +39,17 @@ W
 'target/classes/templates/login.mustache,1\4\14131c4c16eded72cff435ea4c6a79ba34eed2fa
 W
 'src/main/resources/static/css/login.css,8\2\82cabd2857303960b8153146cbe8cec683b300fe
+^
+.target/classes/templates/registration.mustache,c\d\cde342cf85de12a5ed8fe2db5e9816d109d360a4
+b
+2src/main/resources/templates/registration.mustache,1\d\1da0913b333ffbbaad4db5fce4086b27ac4e9517
+^
+.src/main/resources/static/css/regestration.css,3\1\3116f69edbf4ed6ee0d2309565e6d508b8143f77
+W
+'src/main/resources/static/js/letters.js,e\d\ed0208853fc9dd72119d3e34fc7b5646f3374820
+[
++src/main/resources/templates/hello.mustache,0\b\0bd3cabf8e1e6148e7919855fbbb2a4ab8688307
+W
+'target/classes/templates/hello.mustache,d\1\d11899d579923dd967877f6da017bf8c0cb12f1e
+W
+'src/main/resources/static/css/hello.css,a\0\a05b9efb5b5cc97caf2e6469f92d10acc51d4fd8

@@ -64,13 +64,13 @@ body {
 
 .blockOne {
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 78px;
 }
 
 .blockTwo {
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 0.7fr 2fr 0.6fr;
 }
 
 .mainBlock {
@@ -79,11 +79,81 @@ body {
 }
 
 .img-fluid {
-margin-top: 19px;
+    margin-top: 19px;
     margin-left: 59px;
 }
 
 #newClassForAccaunt {
-   margin-left: 200px;
+    margin-left: 200px;
+}
 
+#map {
+    height: 87vh;
+}
+
+#map input[type=text] {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-right: 100px;
+    text-align: left;
+}
+
+#map .ymaps-2-1-73-control-popup__content {
+    width: 300px;
+
+}
+
+#map .ymaps-2-1-73-route-panel-input__location {
+    background-image: none;
+}
+#first {
+    /*background-color: #4B4D65;Для радио кнопок бэкграунд*/
+}
+.section {
+    padding: 100px;
+    padding-left: 150px;
+}
+.section input[type="radio"]{
+    display: none;
+}
+
+.container {
+    margin-bottom: 10px;
+}
+.container label {
+    position: relative;
+}
+
+/* Base styles for spans */
+.container span::before,
+.container span::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+/* Radio buttons */
+.container span.radio:hover {
+    cursor: pointer;
+}
+.container span.radio::before {
+    left: -52px;
+    width: 45px;
+    height: 25px;
+    background-color: #A8AAC1;
+    border-radius: 50px;
+}
+.container span.radio::after {
+    left: -49px;
+    width: 17px;
+    height: 17px;
+    border-radius: 10px;
+    background-color: #6C788A;
+    transition: left .25s, background-color .25s;
+}
+input[type="radio"]:checked + label span.radio::after {
+    left: -27px;
+    background-color: #EBFF43;
 }
