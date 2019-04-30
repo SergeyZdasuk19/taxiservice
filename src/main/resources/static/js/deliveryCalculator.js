@@ -1,12 +1,14 @@
 ymaps.ready(init);
 
 function init() {
+
     // Стоимость за километр.
     var DELIVERY_TARIFF = 20,
         // Минимальная стоимость.
         MINIMUM_COST = 500,
         myMap = new ymaps.Map('map', {
             center: [53.9000000, 27.5666700],
+            center: [53.937722, 27.462818],
             zoom: 9,
             controls: []
         }),
@@ -74,6 +76,20 @@ function init() {
         return Math.max(routeLength * DELIVERY_TARIFF, MINIMUM_COST) * 0.0326;
     }
 
+    var myPlacemark = new ymaps.Placemark(myMap.getCenter(), {
+        balloonContentBody: [
+            '<address>',
+            '<strong>Офис Яндекса в Москве</strong>',
+            '<br/>',
+            'Адрес: 119021, Москва, ул. Льва Толстого, 16',
+            '<br/>',
+            'Подробнее: <a href="https://company.yandex.ru/">https://company.yandex.ru</a>',
+            '</address>'
+        ].join('')
+    }, {
+        preset: 'islands#redDotIcon'
+    });
+    myMap.geoObjects.add(myPlacemark);
 }
 
 function test() {
