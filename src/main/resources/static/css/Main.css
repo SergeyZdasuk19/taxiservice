@@ -1,7 +1,6 @@
 body {
     margin: 0;
     padding: 0;
-
 }
 
 .mainMenu a:before, .mainMenu a:after {
@@ -106,20 +105,24 @@ body {
 #map .ymaps-2-1-73-route-panel-input__location {
     background-image: none;
 }
+
 #first {
     /*background-color: #4B4D65;Для радио кнопок бэкграунд*/
 }
+
 .section {
     padding: 100px;
     padding-left: 150px;
 }
-.section input[type="radio"]{
+
+.section input[type="radio"] {
     display: none;
 }
 
 .container {
     margin-bottom: 10px;
 }
+
 .container label {
     position: relative;
 }
@@ -138,6 +141,7 @@ body {
 .container span.radio:hover {
     cursor: pointer;
 }
+
 .container span.radio::before {
     left: -52px;
     width: 45px;
@@ -145,6 +149,7 @@ body {
     background-color: #A8AAC1;
     border-radius: 50px;
 }
+
 .container span.radio::after {
     left: -49px;
     width: 17px;
@@ -153,7 +158,22 @@ body {
     background-color: #6C788A;
     transition: left .25s, background-color .25s;
 }
+
 input[type="radio"]:checked + label span.radio::after {
     left: -27px;
     background-color: #EBFF43;
+}
+
+#newForMap {
+    opacity: 0;
+}
+
+.newForCars {
+    position: absolute;
+    z-index: 1;
+    left: 1020px;
+}
+
+.newForCar{
+    display: none;
 }
