@@ -16,6 +16,10 @@ public class User implements UserDetails {
     private String password;
     private boolean active;
 
+    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    @JoinColumn(name = "person_id", nullable = false)
+    private Person person;
+
     public User(){
 
     }
@@ -85,7 +89,7 @@ public class User implements UserDetails {
         return active;
     }
 
-    public void setActive(boolean active) {
+   public void setActive(boolean active) {
         this.active = active;
     }
 
