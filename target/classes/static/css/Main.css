@@ -175,5 +175,5 @@ input[type="radio"]:checked + label span.radio::after {
 }
 
 .newForCar{
-    display: none;
+
 }
