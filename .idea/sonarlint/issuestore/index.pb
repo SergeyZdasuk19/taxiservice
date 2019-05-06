@@ -57,3 +57,5 @@ b
 2src/main/resources/static/js/deliveryCalculator.js,a\0\a0b7223d6059260123beb6e70ebfb235c5d5e571
 h
 8src/main/resources/templates/deliveryCalculator.mustache,3\2\323506f1ffbd72c37ed06eef48c6d17d4addd860
+[
++src/main/resources/static/css/animation.css,7\2\72c178d40dcd6398a10419753d3fefba7af7055e

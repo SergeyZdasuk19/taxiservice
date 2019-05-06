@@ -1,7 +1,34 @@
-ymaps.ready(init);
+ymaps.ready(geoFindMe);
 
-function init() {
+function change() {
+    $('#map').css({"opacity": '1'});
+    $('div.cssload-spin-box').toggleClass('newForAnimation');
+    $('div.cssload-spin-box').toggleClass('cssload-spin-box');
+    changeTextOfInput();
+}
 
+function cl() {
+    $('.ymaps-2-1-73-route-panel__clear').click();
+}
+
+function test() {
+    alert($('.ymaps-2-1-73-route-panel-input__input').val());
+}
+
+function changeTextOfInput() {
+    $(".ymaps-2-1-73-route-panel-input__input")[0].setAttribute("onchange", "foo()");
+    $(".ymaps-2-1-73-route-panel-input__input")[1].setAttribute("onchange", "foo()");
+}
+
+function foo() {
+    if($('input[placeholder$="Откуда"]').val()=='' && $('input[placeholder$="Куда"]').val()==''){
+        alert('вышло');
+    }
+}
+
+let num = [];
+
+function init(latitude, longitude) {
     // Стоимость за километр.
     var DELIVERY_TARIFF = 20,
         // Минимальная стоимость.
@@ -33,57 +60,92 @@ function init() {
     routePanelControl.routePanel.options.set({
         types: {auto: true}
     });
-
-    // Если вы хотите задать неизменяемую точку "откуда", раскомментируйте код ниже.
-    /*routePanelControl.routePanel.state.set({
-        fromEnabled: false,
-        from: 'Москва, Льва Толстого 16'
-     });*/
-    var myPlacemark = new ymaps.Placemark([53.937722, 27.462818], {
-            balloonContentBody: [
-
-            ].join('')
+    myMap.controls.add(routePanelControl).add(zoomControl);
+    num = [
+        {
+            coordinates: [53.937722, 27.462818]
         },
         {
-            preset: 'islands#redDotIcon'
-        });
-    myMap.geoObjects.add(myPlacemark);
+            coordinates: [53.909938, 27.458761]
+        },
+        {
+            coordinates: [53.883729, 27.498733]
+        }
+    ];
 
 
-    routePanelControl.routePanel.state.set({
-        // Зададим тип маршрутизации - такси.
-        type: "taxi",
-        // Зададим адрес пункта назначения.
-        to: myPlacemark.geometry.getCoordinates(),
-        from: routePanelControl.routePanel.geolocate('from'),
-        // Отключим возможность задавать пункт отправления в поле ввода.
-        toEnabled: true
+    var myPlacemarkFirst = new ymaps.Placemark(num[0].coordinates, {
+        balloonContentBody: [].join('')
     });
-    myMap.controls.add(routePanelControl).add(zoomControl);
-    // $('input[placeholder$="Откуда"]').val(routePanelControl.routePanel.geolocate('from'));
-    routePanelControl.routePanel.getRouteAsync().then(function (route) {
-        route.model.setParams({results: 1}, true);
-        route.model.events.add('requestsuccess', function () {
-            var activeRoute = route.getActiveRoute();
-            if (activeRoute) {
-                var length = route.getActiveRoute().properties.get("distance"),
-                    price = calculate(Math.round(length.value / 1000));
-                balloonContentLayout = ymaps.templateLayoutFactory.createClass(
-                    '<span>Расстояние: ' + length.text + '.</span><br/>' +
-                    '<span style="font-weight: bold; font-style: italic">Стоимость доставки: ' + Math.round(price) + ' р.</span>');
-                myPlacemark.properties.set('balloonContentBody', '<button type="button" class="btn btn-warning">Aleksey</button><br></br>' + length.text);
-                route.options.set('routeBalloonContentLayout', balloonContentLayout);
-                activeRoute.balloon.open();
-                if ($('input[placeholder$="Откуда"]').val() == '' && $('input[placeholder$="Куда"]').val() == '') {
+    var myPlacemarkSecond = new ymaps.Placemark(num[1].coordinates, {
+        balloonContentBody: [].join('')
+    });
+    var myPlacemarkThird = new ymaps.Placemark(num[2].coordinates, {
+        balloonContentBody: [].join('')
+    });
+    myMap.geoObjects.add(myPlacemarkFirst);
+    myMap.geoObjects.add(myPlacemarkSecond);
+    myMap.geoObjects.add(myPlacemarkThird);
 
+    for (var i = 0; i < num.length; i++) {
+        if (i == 0) {
+            ymaps.route([latitude + " " + longitude, myPlacemarkFirst.geometry.getCoordinates()], {mapStateAutoApply: true}).then(
+                function (route) {
+                    myMap.geoObjects.add(route);
+                    myPlacemarkFirst.properties.set('balloonContentBody', '<button type="button" class="btn btn-warning">Aleksey</button><br></br>' + route.getHumanLength());
+                    myMap.geoObjects.remove(route);
                 }
-                else {
-                    $('.ymaps-2-1-73-route-panel__clear').click();
-                }
+            );
+            if ($('input[placeholder$="Откуда"]').val() == '' && $('input[placeholder$="Куда"]').val() == '') {
+
             }
-        });
+            else {
+                setTimeout(cl, 2000);
+            }
 
-    });
+
+        }
+
+
+        if (i == 1) {
+
+            ymaps.route([latitude + " " + longitude, myPlacemarkSecond.geometry.getCoordinates()], {mapStateAutoApply: true}).then(
+                function (route) {
+                    myMap.geoObjects.add(route);
+                    myPlacemarkSecond.properties.set('balloonContentBody', '<button type="button" class="btn btn-warning">Vitaliy</button><br></br>' + route.getHumanLength());
+                    myMap.geoObjects.remove(route);
+                }
+            );
+            if ($('input[placeholder$="Откуда"]').val() == '' && $('input[placeholder$="Куда"]').val() == '') {
+
+            }
+            else {
+                setTimeout(cl, 2000);
+            }
+        }
+
+
+        if (i == 2) {
+            ymaps.route([latitude + " " + longitude, myPlacemarkThird.geometry.getCoordinates()], {mapStateAutoApply: true}).then(
+                function (route) {
+                    myMap.geoObjects.add(route);
+                    myPlacemarkThird.properties.set('balloonContentBody', '<button type="button" class="btn btn-warning">Andrey</button><br></br>' + route.getHumanLength());
+                    myMap.geoObjects.remove(route);
+                }
+            );
+            if ($('input[placeholder$="Откуда"]').val() == '' && $('input[placeholder$="Куда"]').val() == '') {
+
+            }
+            else {
+                setTimeout(cl, 2000);
+                setTimeout(change, 5000);
+            }
+        }
+
+
+        // $('input[placeholder$="Откуда"]').val(routePanelControl.routePanel.geolocate('from'));
+
+    }
 
 
     function calculate(routeLength) {
@@ -91,30 +153,14 @@ function init() {
     }
 
 
-    // routePanelControl.routePanel.state.set({
-    //     // Зададим тип маршрутизации - такси.
-    //     type: "taxi",
-    //     // Зададим адрес пункта назначения.
-    //     from:geolocation,
-    //     to: 'Павелецкий вокзал',
-    //     // Отключим возможность задавать пункт отправления в поле ввода.
-    //     toEnabled: false
-    // });
-
 }
 
-function test() {
-    alert($('.ymaps-2-1-73-route-panel-input__input').val());
-}
 
-function change() {
-    // $("[id='newForMap']").each(function (){
-    //     $(this).attr("id", "map");
-    // });
-    $('#map').css({"opacity":'1'});
-    $('div.cssload-spin-box').toggleClass('newForAnimation');
-    $('div.cssload-spin-box').toggleClass('cssload-spin-box');
-    $('div.newForCars').toggleClass('newForCar');
-    $('div.newForCars').toggleClass('newForCars');
+function geoFindMe() {
+    function success(position) {
+        var latitude = position.coords.latitude;
+        var longitude = position.coords.longitude;
+        init(latitude, longitude);
+    };
+    navigator.geolocation.getCurrentPosition(success);
 }
-setTimeout(change, 10000);
