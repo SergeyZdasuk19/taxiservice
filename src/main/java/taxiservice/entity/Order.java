@@ -8,13 +8,17 @@ public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @Column(name = "departure_point")
-    private String departurePoint;
-    @Column(name = "arrival_point")
-    private String arrivalPoint;
     private Double distance;
     private Double price;
     private String status;
+
+    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    @JoinColumn(name = "departure_point", nullable = false)
+    private Point departurePoint;
+
+    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    @JoinColumn(name = "arrival_point", nullable = false)
+    private Point arrivalPoint;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     @JoinColumn(name = "taxidriver_id", nullable = false)
@@ -33,22 +37,6 @@ public class Order {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getDeparturePoint() {
-        return departurePoint;
-    }
-
-    public void setDeparturePoint(String departurePoint) {
-        this.departurePoint = departurePoint;
-    }
-
-    public String getArrivalPoint() {
-        return arrivalPoint;
-    }
-
-    public void setArrivalPoint(String arrivalPoint) {
-        this.arrivalPoint = arrivalPoint;
     }
 
     public Double getDistance() {
@@ -73,6 +61,22 @@ public class Order {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public Point getDeparturePoint() {
+        return departurePoint;
+    }
+
+    public void setDeparturePoint(Point departurePoint) {
+        this.departurePoint = departurePoint;
+    }
+
+    public Point getArrivalPoint() {
+        return arrivalPoint;
+    }
+
+    public void setArrivalPoint(Point arrivalPoint) {
+        this.arrivalPoint = arrivalPoint;
     }
 
     public Taxidriver getTaxidriver() {

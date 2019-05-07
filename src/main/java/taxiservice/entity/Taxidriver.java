@@ -11,10 +11,10 @@ public class Taxidriver {
     private Long id;
     @Column(name = "is_busy")
     private boolean isBusy;
-    @Column(name = "current_x")
-    private Double currentX;
-    @Column(name = "current_y")
-    private Double currentY;
+
+    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    @JoinColumn(name = "current_point", nullable = false)
+    private Point currentPoint;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     @JoinColumn(name = "user_id", nullable = false)
@@ -43,20 +43,12 @@ public class Taxidriver {
         isBusy = busy;
     }
 
-    public Double getCurrentX() {
-        return currentX;
+    public Point getCurrentPoint() {
+        return currentPoint;
     }
 
-    public void setCurrentX(Double currentX) {
-        this.currentX = currentX;
-    }
-
-    public Double getCurrentY() {
-        return currentY;
-    }
-
-    public void setCurrentY(Double currentY) {
-        this.currentY = currentY;
+    public void setCurrentPoint(Point currentPoint) {
+        this.currentPoint = currentPoint;
     }
 
     public User getUser() {
