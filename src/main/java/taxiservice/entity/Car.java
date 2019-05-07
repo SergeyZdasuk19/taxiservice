@@ -10,16 +10,17 @@ public class Car {
     private Long id;
     private String mark;
     private String model;
-    private Integer seatsNumber;
+    @Column(name = "seats_number")
+    private Integer seatsnumber;
     private String govnumber;
 
     public Car() {
     }
 
-    public Car(String mark, String model, Integer seatsNumber, String govnumber) {
+    public Car(String mark, String model, Integer seatsnumber, String govnumber) {
         this.mark = mark;
         this.model = model;
-        this.seatsNumber = seatsNumber;
+        this.seatsnumber = seatsnumber;
         this.govnumber = govnumber;
     }
 
@@ -47,12 +48,12 @@ public class Car {
         this.model = model;
     }
 
-    public Integer getSeats_number() {
-        return seatsNumber;
+    public Integer getSeatsnumber() {
+        return seatsnumber;
     }
 
-    public void setSeats_number(Integer seatsNumber) {
-        this.seatsNumber = seatsNumber;
+    public void setSeatsnumber(Integer seatsnumber) {
+        this.seatsnumber = seatsnumber;
     }
 
     public String getGovnumber() {

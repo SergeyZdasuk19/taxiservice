@@ -11,16 +11,25 @@ public class Person {
     private Long id;
     private String name;
     private String surname;
-    private String phone_number;
+    @Column(name = "phone_number")
+    private String phoneNumber;
 
     public Person(){
 
     }
 
-    public Person(String name, String surname, String phone_number) {
+    public Person(String name, String surname, String phoneNumber) {
         this.name = name;
         this.surname = surname;
-        this.phone_number = phone_number;
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     public Long getId() {
@@ -45,13 +54,5 @@ public class Person {
 
     public void setSurname(String surname) {
         this.surname = surname;
-    }
-
-    public String getPhone_number() {
-        return phone_number;
-    }
-
-    public void setPhone_number(String phone_number) {
-        this.phone_number = phone_number;
     }
 }

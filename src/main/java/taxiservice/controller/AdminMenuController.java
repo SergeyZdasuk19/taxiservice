@@ -13,7 +13,7 @@ import taxiservice.repository.UserRepo;
 import java.util.Map;
 
 @Controller
-@PreAuthorize("hasAuthority('ADMIN')")
+//@PreAuthorize("hasAuthority('ADMIN')")
 @RequestMapping("/admin")
 public class AdminMenuController {
 

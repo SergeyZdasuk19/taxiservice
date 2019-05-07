@@ -9,8 +9,11 @@ public class Taxidriver {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @Column(name = "is_busy")
     private boolean isBusy;
+    @Column(name = "current_x")
     private Double currentX;
+    @Column(name = "current_y")
     private Double currentY;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})

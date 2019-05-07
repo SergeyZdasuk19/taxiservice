@@ -8,7 +8,9 @@ public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @Column(name = "departure_point")
     private String departurePoint;
+    @Column(name = "arrival_point")
     private String arrivalPoint;
     private Double distance;
     private Double price;

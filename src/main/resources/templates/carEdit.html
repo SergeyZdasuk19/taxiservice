@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <form method="post">
+        <input type="text" name="mark" th:value="${car.mark}" />
+        <input type="text" name="carmodel" th:value="${car.model}" />
+        <input type="number" name="seats" th:value="${car.seatsnumber}" />
+        <input type="text" name="govnumber" th:value="${car.govnumber}" />
+
+        <input
+                type="hidden"
+                th:name="${_csrf.parameterName}"
+                th:value="${_csrf.token}" />
+        <button type="submit">Изменить</button>
+    </form>
+</div>
+</body>
+</html>
