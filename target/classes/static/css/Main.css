@@ -29,7 +29,7 @@ body {
     letter-spacing: 2px;
     position: relative;
     margin-top: 5px;
-    padding-bottom: 10px;
+    padding-bottom: 0px;
     font-size: 15px;
     text-transform: uppercase;
     display: inline-block;
@@ -37,9 +37,8 @@ body {
 }
 
 .mainMenu > nav > div > ul > li {
-    margin-left: 20px;
-    padding-bottom: 6px;
-    padding-top: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .emblem > img {

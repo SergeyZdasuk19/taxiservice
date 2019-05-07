@@ -1,4 +1,8 @@
 
-Ajavascript:S1442k" Remove this usage of alert(...).(äòñ¶şÿÿÿÿ
-Qjavascript:EmptyBlockM")Either remove or fill this block of code.(·ÕÛ³8áÏ¸Ö§-
-javascript:S2703G"jAdd the "let", "const" or "var" keyword to this declaration of "balloonContentLayout" to make it explicit.(öË8áÏ¸Ö§-
+Ajavascript:S1442" Remove this usage of alert(...).(äòñ¶şÿÿÿÿ
+Qjavascript:EmptyBlockc")Either remove or fill this block of code.(·ÕÛ³8áÏ¸Ö§-
+Hjavascript:S1442" Remove this usage of alert(...).(ññÀƒÿÿÿÿÿ8Éñ”Ø¨-
+Ejavascript:S1116¤"Remove this empty statement.(ôŸìúÿÿÿÿ8Éñ”Ø¨-
+Qjavascript:EmptyBlockw")Either remove or fill this block of code.(·ÕÛ³8Éñ”Ø¨-
+Rjavascript:EmptyBlockˆ")Either remove or fill this block of code.(·ÕÛ³8Éñ”Ø¨-
+Pjavascript:UnusedVariable—"#Remove unused function 'calculate'.(ÅñÃ²8Éñ”Ø¨-

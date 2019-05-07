@@ -1,4 +1,31 @@
+let map = new Map();
+$(document).ready(function () {
+    $('.btn.btn-outline-success').click(function () {
+        $('input[name$="username"]').val($('.btn.btn-outline-secondary span').text());
+        $('input[name$="placeFrom"]').val($('input[placeholder$="Откуда"]').val());
+        $('input[name$="placeTo"]').val($('input[placeholder$="Куда"]').val());
+        $('input[name$="carBody"]').val($('input[name$="group1"]:checked').val());
+    });
+
+});
+
 ymaps.ready(geoFindMe);
+
+function addFirstPriceToModal() {
+    $('input[name$="price"]').val(map.get(1));
+    $('input[name$="nameTaxi"]').val('Aleksey');
+
+}
+
+function addSecondPriceToModal() {
+    $('input[name$="price"]').val(map.get(2));
+    $('input[name$="nameTaxi"]').val('Vitaliy');
+}
+
+function addThirdPriceToModal() {
+    $('input[name$="price"]').val(map.get(3));
+    $('input[name$="nameTaxi"]').val('Andrey');
+}
 
 function change() {
     $('#map').css({"opacity": '1'});
@@ -11,8 +38,8 @@ function cl() {
     $('.ymaps-2-1-73-route-panel__clear').click();
 }
 
-function test() {
-    alert($('.ymaps-2-1-73-route-panel-input__input').val());
+function addInfoToInputFirst() {
+    $('.ymaps-2-1-73-route-panel-input__input').val();
 }
 
 function changeTextOfInput() {
@@ -20,26 +47,35 @@ function changeTextOfInput() {
     $(".ymaps-2-1-73-route-panel-input__input")[1].setAttribute("onchange", "foo()");
 }
 
+
 function foo() {
-    if($('input[placeholder$="Откуда"]').val()=='' && $('input[placeholder$="Куда"]').val()==''){
-        alert('вышло');
+    if ($('input[placeholder$="Откуда"]').val() != '' && $('input[placeholder$="Куда"]').val() != '') {
+        init($('input[placeholder$="Откуда"]').val(), '');
     }
 }
 
 let num = [];
+let myPlacemarkFirst;
+let myPlacemarkSecond;
+let myPlacemarkThird;
+let myMap;
 
 function init(latitude, longitude) {
+    if (longitude == '') {
+        countDistanceWithoutMyPlace();
+        return;
+    }
     // Стоимость за километр.
-    var DELIVERY_TARIFF = 20,
-        // Минимальная стоимость.
-        MINIMUM_COST = 500,
-        myMap = new ymaps.Map('map', {
-            center: [53.9000000, 27.5666700],
-            zoom: 9,
-            controls: []
-        }, {
-            searchControlProvider: 'yandex#search'
-        }),
+    var DELIVERY_TARIFF = 20;
+    // Минимальная стоимость.
+    var MINIMUM_COST = 500;
+    myMap = new ymaps.Map('map', {
+        center: [53.9000000, 27.5666700],
+        zoom: 9,
+        controls: []
+    }, {
+        searchControlProvider: 'yandex#search'
+    }),
         // Создадим панель маршрутизации.
         routePanelControl = new ymaps.control.RoutePanel({
             options: {
@@ -74,13 +110,13 @@ function init(latitude, longitude) {
     ];
 
 
-    var myPlacemarkFirst = new ymaps.Placemark(num[0].coordinates, {
+    myPlacemarkFirst = new ymaps.Placemark(num[0].coordinates, {
         balloonContentBody: [].join('')
     });
-    var myPlacemarkSecond = new ymaps.Placemark(num[1].coordinates, {
+    myPlacemarkSecond = new ymaps.Placemark(num[1].coordinates, {
         balloonContentBody: [].join('')
     });
-    var myPlacemarkThird = new ymaps.Placemark(num[2].coordinates, {
+    myPlacemarkThird = new ymaps.Placemark(num[2].coordinates, {
         balloonContentBody: [].join('')
     });
     myMap.geoObjects.add(myPlacemarkFirst);
@@ -92,7 +128,10 @@ function init(latitude, longitude) {
             ymaps.route([latitude + " " + longitude, myPlacemarkFirst.geometry.getCoordinates()], {mapStateAutoApply: true}).then(
                 function (route) {
                     myMap.geoObjects.add(route);
-                    myPlacemarkFirst.properties.set('balloonContentBody', '<button type="button" class="btn btn-warning">Aleksey</button><br></br>' + route.getHumanLength());
+                    var distance = route.getHumanLength().replace(/&#160;км/i, '');
+                    var price = calculate(distance);
+                    map.set(1, price);
+                    myPlacemarkFirst.properties.set('balloonContentBody', '<button type="button" class="btn btn-warning" onclick="addFirstPriceToModal()">Aleksey</button><br></br>' + route.getHumanLength());
                     myMap.geoObjects.remove(route);
                 }
             );
@@ -112,7 +151,10 @@ function init(latitude, longitude) {
             ymaps.route([latitude + " " + longitude, myPlacemarkSecond.geometry.getCoordinates()], {mapStateAutoApply: true}).then(
                 function (route) {
                     myMap.geoObjects.add(route);
-                    myPlacemarkSecond.properties.set('balloonContentBody', '<button type="button" class="btn btn-warning">Vitaliy</button><br></br>' + route.getHumanLength());
+                    var distance = route.getHumanLength().replace(/&#160;км/i, '');
+                    var price = calculate(distance);
+                    map.set(2, price);
+                    myPlacemarkSecond.properties.set('balloonContentBody', '<button type="button" class="btn btn-warning" onclick="addSecondPriceToModal()">Vitaliy</button><br></br>' + route.getHumanLength());
                     myMap.geoObjects.remove(route);
                 }
             );
@@ -129,7 +171,10 @@ function init(latitude, longitude) {
             ymaps.route([latitude + " " + longitude, myPlacemarkThird.geometry.getCoordinates()], {mapStateAutoApply: true}).then(
                 function (route) {
                     myMap.geoObjects.add(route);
-                    myPlacemarkThird.properties.set('balloonContentBody', '<button type="button" class="btn btn-warning">Andrey</button><br></br>' + route.getHumanLength());
+                    var distance = route.getHumanLength().replace(/&#160;км/i, '');
+                    var price = calculate(distance);
+                    map.set(3, price);
+                    myPlacemarkThird.properties.set('balloonContentBody', '<button type="button" class="btn btn-warning" onclick="addThirdPriceToModal()">Andrey</button><br></br>' + route.getHumanLength());
                     myMap.geoObjects.remove(route);
                 }
             );
@@ -143,16 +188,91 @@ function init(latitude, longitude) {
         }
 
 
-        // $('input[placeholder$="Откуда"]').val(routePanelControl.routePanel.geolocate('from'));
-
     }
-
+    addInfoToInputFirst();
 
     function calculate(routeLength) {
-        return Math.max(routeLength * DELIVERY_TARIFF, MINIMUM_COST) * 0.0326;
+        return routeLength * 0.5;
     }
 
+    function countDistanceWithoutMyPlace() {
+        $('#map').css({"opacity": '0'});
+        $('div.newForAnimation').toggleClass('cssload-spin-box');
+        $('div.newForAnimation').toggleClass('newForAnimation');
+        for (var i = 0; i < num.length; i++) {
+            if (i == 0) {
+                ymaps.route([$('input[placeholder$="Откуда"]').val(), myPlacemarkFirst.geometry.getCoordinates()], {mapStateAutoApply: true}).then(
+                    function (route) {
+                        myMap.geoObjects.add(route);
+                        var distanceMarkerTo = route.getHumanLength().replace(/&#160;км/i, '');
+                        var price;
+                        ymaps.route([$('input[placeholder$="Откуда"]').val(), $('input[placeholder$="Куда"]').val()], {mapStateAutoApply: true}).then(
+                            function (routeFirst) {
+                                myMap.geoObjects.add(routeFirst);
+                                price = calculate(routeFirst.getHumanLength().replace(/&#160;км/i, ''));
+                                map.set(1, price);
+                                myPlacemarkFirst.properties.set('balloonContentBody', '<button type="button" class="btn btn-warning" onclick="addFirstPriceToModal()">Aleksey</button><br></br>' + distanceMarkerTo + ' км<span id="priceFirst"> ' + price + ' р </span>');
+                                myMap.geoObjects.remove(routeFirst);
+                            }
+                        );
+                        myMap.geoObjects.remove(route);
+                    }
+                );
+            }
 
+
+            if (i == 1) {
+
+                ymaps.route([$('input[placeholder$="Откуда"]').val(), myPlacemarkSecond.geometry.getCoordinates()], {mapStateAutoApply: true}).then(
+                    function (route) {
+                        myMap.geoObjects.add(route);
+                        var distanceMarkerTo = route.getHumanLength().replace(/&#160;км/i, '');
+                        var price;
+                        ymaps.route([$('input[placeholder$="Откуда"]').val(), $('input[placeholder$="Куда"]').val()], {mapStateAutoApply: true}).then(
+                            function (routeSecond) {
+                                myMap.geoObjects.add(routeSecond);
+                                price = calculate(routeSecond.getHumanLength().replace(/&#160;км/i, ''));
+                                map.set(2, price);
+                                myPlacemarkSecond.properties.set('balloonContentBody', '<button type="button" class="btn btn-warning" onclick="addSecondPriceToModal()">Vitaliy</button><br></br>' + distanceMarkerTo + ' км<span id="priceSecond"> ' + price + ' р </span>');
+                                myMap.geoObjects.remove(routeSecond);
+                            }
+                        );
+                        myMap.geoObjects.remove(route);
+                    }
+                );
+            }
+
+
+            if (i == 2) {
+                ymaps.route([$('input[placeholder$="Откуда"]').val(), myPlacemarkThird.geometry.getCoordinates()], {mapStateAutoApply: true}).then(
+                    function (route) {
+                        myMap.geoObjects.add(route);
+                        var distanceMarkerTo = route.getHumanLength().replace(/&#160;км/i, '');
+                        var price;
+                        ymaps.route([$('input[placeholder$="Откуда"]').val(), $('input[placeholder$="Куда"]').val()], {mapStateAutoApply: true}).then(
+                            function (routeThird) {
+                                myMap.geoObjects.add(routeThird);
+                                price = calculate(routeThird.getHumanLength().replace(/&#160;км/i, ''));
+                                map.set(3, price);
+                                myPlacemarkThird.properties.set('balloonContentBody', '<button type="button" class="btn btn-warning" onclick="addThirdPriceToModal()">Andrey</button><br></br>' + distanceMarkerTo + ' км<span id="priceSecond"> ' + price + ' р </span>');
+                                myMap.geoObjects.remove(routeThird);
+                            }
+                        );
+                        myMap.geoObjects.remove(route);
+                    }
+                );
+                if ($('input[placeholder$="Откуда"]').val() == '' && $('input[placeholder$="Куда"]').val() == '') {
+
+                }
+                else {
+                    setTimeout(change, 5000);
+                    changeTextOfInput();
+                }
+            }
+
+
+        }
+    }
 }
 
 

@@ -9,14 +9,10 @@ S
 #target/classes/static/css/clock.css,9\9\99268a3d9f55bc8f145c21dff29eadc21342abb6
 R
 "target/classes/static/css/Main.css,5\0\50e7f703bd96f9d3c7e20b7a053e795b267a76db
-Z
-*target/classes/templates/MainPage.mustache,9\1\91aa35f53e59fe2aedc16f769715904958c346bc
 p
 @src/main/java/taxiservice/controller/RegistrationController.java,1\8\18a4f115725d20e53325a8c20c094aaf683c3d94
 b
 2src/main/java/taxiservice/repository/UserRepo.java,9\3\93899921a3b61f6b6817920d03dee5eb3b8870c1
-^
-.src/main/resources/templates/MainPage.mustache,5\6\56ec60598b4d627cb048e3740864713d3a354017
 _
 /src/main/java/taxiservice/config/MvcConfig.java,c\9\c9442b6356012e6a7b23d961432571928b1fe073
 Z

@@ -41,14 +41,12 @@
                             <li class="nav-item active"><a class="nav-link" href="#">Сервис</a></li>
                             <li><a class="nav-link" href="#">Мои заказы</a></li>
                             <li><a class="nav-link" href="#">Контакты</a></li>
-
-                            <div th:each="role : ${user.roles}">
+                            <div  th:each="role : ${user.roles}">
                                 <div th:switch="${role}">
-                                    <li th:case="${T(taxiservice.entity.Role).ADMIN}"><a class="nav-link" href="/admin">Меню администратора</a></li>
+                                    <li  th:case="${T(taxiservice.entity.Role).ADMIN}"><a class="nav-link" href="/admin">Меню администратора</a></li>
                                     <li th:case="${T(taxiservice.entity.Role).TAXIDRIVER}"><a class="nav-link" href="/taximenu">Меню таксиста</a></li>
                                     <li th:case="${T(taxiservice.entity.Role).USER}"><a class="nav-link" href="/usermenu">Меню пользователя</a></li>
                                 </div>
-
                             </div>
 
 
@@ -57,13 +55,14 @@
                 </nav>
             </div>
             <div class="accaunt" style="background-color: yellow">
-                <button type="button" id="f" class="btn btn-outline-secondary " data-toggle="modal"
-                        data-target="#exampleModal" >
+                <button type="button" id="f" class="btn btn-outline-secondary ">
                     <i class="fa fa-user-circle" aria-hidden="true"></i>
-                    <h6 th:utext="${user.username}"/>
+                    <span th:utext="${user.username}"/>
+
 
                 </button>
-                <button type="submit" class="btn btn-outline-success" onclick="changeTextOfInput()">Заказать</button>
+                <button type="submit" class="btn btn-outline-success" data-toggle="modal"
+                        data-target="#exampleModal" >Заказать</button>
             </div>
 
         </div>
@@ -75,19 +74,19 @@
         <div class="newForCar">
             <div id="first" class="section" >
                     <div class="container">
-                        <input type="radio" name="group1" id="radio-1">
+                        <input type="radio" name="group1" id="radio-1" value="Седан">
                         <label for="radio-1"><span class="radio">
                             <img src="/images/sedan-car-model.png"></span>
                         </label>
                     </div>
                     <div class="container">
-                        <input type="radio" name="group1" id="radio-2">
+                        <input type="radio" name="group1" id="radio-2" value="Хэтчбек">
                         <label for="radio-2"><span class="radio">
                             <img src="/images/car-of-hatchback-model.png">
                         </span></label>
                     </div>
                     <div class="container">
-                        <input type="radio" name="group1" id="radio-3">
+                        <input type="radio" name="group1" id="radio-3" value="Купе">
                         <label for="radio-3"><span class="radio"></span>
                             <img src="/images/coupe-car.png">
                         </label>
@@ -103,34 +102,61 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">
-                    Личный кабинет
+                    Оформить заказ
                 </h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="/login" method="post">
+            <form>
                 <div class="modal-body">
                     <div class="form-group row">
-                        <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+                        <label  class="col-sm-2 col-form-label">Login</label>
                         <div class="col-sm-10">
-                            <input type="text" name="username" class="form-control" id="staticEmail"
-                                   placeholder="email@example.com" >
+                            <input type="text" name="username" class="form-control"
+                                   placeholder="Aleksey" >
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+                        <label class="col-sm-2 col-form-label">From</label>
                         <div class="col-sm-10">
-                            <input type="password" name="password" class="form-control" id="inputPassword"
-                                   placeholder="Password">
+                            <input type="text" name="placeFrom" class="form-control"
+                                   placeholder="Минск" >
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">To</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="placeTo" class="form-control"
+                                   placeholder="Орша" >
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Car body</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="carBody" class="form-control"
+                                   placeholder="Универсал" >
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Taxi driver name</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="nameTaxi" class="form-control"
+                                   placeholder="Таксист ..." >
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Price, р</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="price" class="form-control"
+                                   placeholder="Цена" >
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
-                    <button type="submit" class="btn btn-primary" data-dismiss="modal">Save changes
-                    </button>
+                    <button type="submit" class="btn btn-primary" data-dismiss="modal">Save changes</button>
                 </div>
             </form>
         </div>
