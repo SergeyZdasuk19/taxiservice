@@ -55,7 +55,9 @@ public class CarsController {
             Model model
     )
     {
-
+        if(type.equals("sedan")) type = "Седан";
+        else if (type.equals("hatchback")) type = "Хетчбек";
+        else type = "Купе";
         Car car = new Car(mark, carmodel, type, seats, govnumber);
         carRepo.save(car);
         return "redirect:/admin/cars";
