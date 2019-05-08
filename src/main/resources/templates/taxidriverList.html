@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+cars
+<div>
+
+
+    <table border="3">
+        <thead>
+        <tr>
+            <th>id</th>
+            <th>Марка</th>
+            <th>Модель</th>
+            <th>Кол. мест</th>
+            <th>Гос. номер</th>
+
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr th:each="taxidriver : ${taxidrivers}">
+
+            <td th:utext="${car.id}"/>
+            <td th:utext="${car.mark}"/>
+            <td th:utext="${car.model}"/>
+            <td th:utext="${car.seatsnumber}"/>
+            <td th:utext="${car.govnumber}"/>
+
+            <td>
+                <form method="post" action="/admin/cars/remove">
+                    <input type="hidden" name="carId" th:value="${car.id}"/>
+                    <input
+                            type="hidden"
+                            th:name="${_csrf.parameterName}"
+                            th:value="${_csrf.token}" />
+                    <button type="submit">Удалить</button>
+                </form>
+            </td>
+
+            <td>
+                <a th:href="cars + '/' + edit + '/' + ${car.id}">Изменить</a>
+            </td>
+        </tr>
+
+        </tbody>
+    </table>
+    <a href="/admin/cars/add">Добавить</a>
+</div>
+</body>
+</html>

@@ -49,13 +49,14 @@ public class CarsController {
             @AuthenticationPrincipal User user,
             @RequestParam String mark,
             @RequestParam String carmodel,
+            @RequestParam String type,
             @RequestParam Integer seats,
             @RequestParam String govnumber,
             Model model
     )
     {
 
-        Car car = new Car(mark, carmodel, seats, govnumber);
+        Car car = new Car(mark, carmodel, type, seats, govnumber);
         carRepo.save(car);
         return "redirect:/admin/cars";
     }
@@ -79,13 +80,14 @@ public class CarsController {
             @PathVariable("id") Long carId,
             @RequestParam String mark,
             @RequestParam String carmodel,
+            @RequestParam String type,
             @RequestParam Integer seats,
             @RequestParam String govnumber,
             Model model
     )
     {
         //Car car = carRepo.findById(carId).orElse(new Car());
-        carRepo.updateAll(carId, mark, carmodel, seats, govnumber);
+        carRepo.updateAll(carId, mark, carmodel, type, seats, govnumber);
 
         return "redirect:/admin/cars";
     }

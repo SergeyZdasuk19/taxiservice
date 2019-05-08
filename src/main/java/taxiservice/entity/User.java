@@ -31,6 +31,21 @@ public class User implements UserDetails {
         this.active = user.active;
     }
 
+    public User(String username, String password, boolean active, Person person, Set<Role> roles) {
+        this.username = username;
+        this.password = password;
+        this.active = active;
+        this.person = person;
+        this.roles = roles;
+    }
+
+    public User(String username, String password, boolean active, Person person) {
+        this.username = username;
+        this.password = password;
+        this.active = active;
+        this.person = person;
+    }
+
     @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
     @CollectionTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"))
     @Enumerated(EnumType.STRING)
@@ -99,5 +114,25 @@ public class User implements UserDetails {
 
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
+    }
+
+    public Person getPerson() {
+        return person;
+    }
+
+    public void setPerson(Person person) {
+        this.person = person;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", active=" + active +
+                ", person=" + person.getId() +
+                ", roles=" + roles +
+                '}';
     }
 }

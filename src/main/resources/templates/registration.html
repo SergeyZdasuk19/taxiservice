@@ -7,14 +7,13 @@
           integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 </head>
 <body>
-{{#message}}
-    {{message}}
-{{/message}}
+
 <div class="mainBlockRegistration">
     <div class="blockFirstRegistration"></div>
     <div class="blockSecondRegistration">
         <div>
             <span class="title">Account Registration</span>
+            <span class="title" th:if="${message != null}">Данный пользователь уже существует</span>
         </div>
         <form action="/registration" method="post" style="padding-top: 40px">
             <div class="login">

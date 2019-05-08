@@ -10,6 +10,7 @@ public class Car {
     private Long id;
     private String mark;
     private String model;
+    private String type;
     @Column(name = "seats_number")
     private Integer seatsnumber;
     private String govnumber;
@@ -17,11 +18,21 @@ public class Car {
     public Car() {
     }
 
-    public Car(String mark, String model, Integer seatsnumber, String govnumber) {
+
+    public Car(String mark, String model, String type, Integer seatsnumber, String govnumber) {
         this.mark = mark;
         this.model = model;
+        this.type = type;
         this.seatsnumber = seatsnumber;
         this.govnumber = govnumber;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public Long getId() {

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+users
+<div>
+
+    <td th:text="${message} ?: null" />
+    <table border="3">
+        <thead>
+        <tr>
+            <th>id</th>
+            <th>Логин</th>
+            <th>Пароль</th>
+            <th>Статус</th>
+            <th>Роль</th>
+            <th>Имя</th>
+            <th>Фамилия</th>
+            <th>Номер телефона</th>
+
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr th:each="user : ${users}">
+
+            <td th:utext="${user.id}"/>
+            <td th:utext="${user.username}"/>
+            <td th:utext="${user.password}"/>
+            <td th:utext="${user.active}"/>
+
+            <div  th:each="role : ${user.roles}">
+                <td th:utext="${role}"/>
+            </div>
+
+            <td th:text="${user.person} ? ${user.person.name} : 'UNKNOWN'" />
+            <td th:text="${user.person} ? ${user.person.surname}: 'UNKNOWN'" />
+            <td th:text="${user.person} ? ${user.person.phoneNumber} : 'UNKNOWN'" />
+
+            <td>
+                <form method="post" action="/admin/users/remove">
+                    <input type="hidden" name="userId" th:value="${user.id}"/>
+                    <input
+                            type="hidden"
+                            th:name="${_csrf.parameterName}"
+                            th:value="${_csrf.token}" />
+                    <button type="submit">Удалить</button>
+                </form>
+            </td>
+
+            <td>
+                <a th:href="users + '/' + edit + '/' + ${user.id}">Изменить</a>
+            </td>
+        </tr>
+
+        </tbody>
+    </table>
+    <a href="/admin/users/add">Добавить</a>
+</div>
+</body>
+</html>

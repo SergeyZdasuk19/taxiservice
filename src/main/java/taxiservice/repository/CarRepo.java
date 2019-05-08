@@ -14,6 +14,12 @@ public interface CarRepo extends CrudRepository<Car, Long> {
 
     @Modifying(clearAutomatically = true)
     @Transactional
-    @Query("update Car car set car.mark =:mark, car.model =:model, car.seatsnumber =:seatsnumber, car.govnumber =:govnumber  where car.id =:carId")
-    void updateAll(@Param("carId") Long carId, @Param("mark") String mark, @Param("model") String model, @Param("seatsnumber") Integer searsnumber, @Param("govnumber") String govnumber);
+    @Query("update Car car set car.mark =:mark, car.model =:model, car.type =:type, car.seatsnumber =:seatsnumber, car.govnumber =:govnumber  where car.id =:carId")
+    void updateAll(
+            @Param("carId") Long carId,
+            @Param("mark") String mark,
+            @Param("model") String model,
+            @Param("type") String type,
+            @Param("seatsnumber") Integer searsnumber,
+            @Param("govnumber") String govnumber);
 }
