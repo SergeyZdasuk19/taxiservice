@@ -1,0 +1,135 @@
+body {
+    background-color: darkgray;
+}
+
+.mainBlock div table {
+    padding-top: 2%;
+}
+
+.mainBlock table {
+    background-color: #feb386;
+}
+
+.mainBlock th {
+    padding: 10px 30px 20px 30px;
+}
+.mainBlock td {
+    text-align: center;
+    padding: 10px 30px 20px 30px;
+    font-family: "Arial Black";
+    font-weight: bold;
+}
+.mainBlock tr {
+    background-color: #feb386;
+    padding: 10px 30px 20px 30px;
+}
+
+.mainBlock {
+    height: 87.6vh;
+    margin: 0 90px 0 90px
+}
+
+.emblem div:nth-child(3) button {
+    margin-left: 60%;
+    margin-top: 3.5%;
+}
+
+.emblem {
+    height: 78px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 100%;
+}
+
+.emblem div img {
+    margin-left: 13.1%;
+    margin-top: 1.7%;
+}
+
+.buttonAdd {
+    display: inline-block;
+    margin-left: 5%;
+    margin-top: 1%;
+    padding: 15px 60px 15px 60px;
+    font-size: 20px;
+    font-family: "Arial";
+    border-radius: 3px;
+    border: 0;
+    background: rgb(64, 199, 129);
+    box-shadow: 0 -3px rgb(53, 167, 110) inset;
+    transition: 0.2s;
+    color: white;
+    text-decoration: none;
+}
+
+.buttonAdd:hover {
+    background: rgb(53, 167, 110);
+    color: white;
+    text-decoration: none;
+}
+
+.buttonAdd:active {
+    background: rgb(33, 147, 90);
+    box-shadow: 0 3px rgb(33, 147, 90) inset;
+    color: white;
+    text-decoration: none;
+}
+
+
+.buttonDelete {
+    display: inline-block;
+    margin-left: 5%;
+    margin-top: 1%;
+    padding: 10px 10px 10px 10px;
+    font-size: 20px;
+    font-family: "Arial";
+    border-radius: 3px;
+    border: 0;
+    background: rgb(199, 20, 11);
+    box-shadow: 0 -3px rgb(167, 52, 40) inset;
+    transition: 0.2s;
+    color: white;
+    text-decoration: none;
+}
+
+.buttonDelete:hover {
+    background: rgb(167, 69, 43);
+    color: white;
+    text-decoration: none;
+}
+
+.buttonDelete:active {
+    background: rgb(147, 16, 34);
+    box-shadow: 0 3px rgb(147, 45, 26) inset;
+    color: white;
+    text-decoration: none;
+}
+
+.buttonEdit {
+    display: inline-block;
+    margin-left: 5%;
+    margin-top: 1%;
+    padding: 10px 10px 10px 10px;
+    font-size: 20px;
+    font-family: "Arial";
+    border-radius: 3px;
+    border: 0;
+    background: rgb(199, 161, 24);
+    box-shadow: 0 -3px rgb(167, 126, 41) inset;
+    transition: 0.2s;
+    color: white;
+    text-decoration: none;
+}
+
+.buttonEdit:hover {
+    background: rgb(167, 147, 33);
+    color: white;
+    text-decoration: none;
+}
+
+.buttonEdit:active {
+    background: rgb(147, 114, 31);
+    box-shadow: 0 3px rgb(147, 113, 18) inset;
+    color: white;
+    text-decoration: none;
+}
