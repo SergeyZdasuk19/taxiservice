@@ -1,0 +1,143 @@
+body{
+    background-color: darkgray;
+}
+.mainBlock {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    height: 87.6vh;
+    margin:0 90px 0 90px
+}
+.emblem > div:nth-child(3) > a > button{
+    margin-left: 60%;
+    margin-top: 3.5%;
+}
+.emblem{
+    height: 78px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 100%;
+}
+.emblem > div > img {
+    margin-left: 13.1%;
+    margin-top: 1.7%;
+}
+
+.buttonCars{
+    display: inline-block;
+    margin-left: 5%;
+    margin-top: 40%;
+    padding: 15px 80px 15px 80px;
+    font-size: 20px;
+    font-family: "Arial";
+    border-radius: 3px;
+    border: 0;
+    background: rgb(64, 199, 129);
+    box-shadow: 0 -3px rgb(53, 167, 110) inset;
+    transition: 0.2s;
+    color: white;
+    text-decoration: none;
+}
+
+.buttonCars:hover {
+    background: rgb(53, 167, 110);
+    color: white;
+    text-decoration: none;
+}
+
+.buttonCars:active {
+    background: rgb(33, 147, 90);
+    box-shadow: 0 3px rgb(33, 147, 90) inset;
+    color: white;
+    text-decoration: none;
+}
+
+
+.button_hola,
+.button_hola::before,
+.button_hola::after,
+.button_hola span,
+.button_hola span::before,
+.button_hola span::after
+{
+    transition: all ease .5s;
+}
+
+.button_hola{
+    position: relative;
+    display: inline-block;
+    border: solid 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+
+
+.button_hola span
+{
+    display: inline-block;
+    width: 100%;
+    padding: 0.6em 2em;
+}
+
+
+
+.button_hola::before,
+.button_hola::after,
+.button_hola span::before,
+.button_hola span::after
+{
+    content: '';
+    position: absolute;
+    border: 1px;
+}
+
+.button_hola::before,
+.button_hola span::before
+{
+    border-style: solid none;
+}
+
+.button_hola::before,
+.button_hola span::after{
+    left: 0;
+    top: -0.4em;
+    width: 100%;
+    height: calc(100% + 0.8em);
+}
+
+.button_hola::after,
+.button_hola span::after
+{
+    border-style: none solid;
+}
+
+.button_hola::after,
+.button_hola span::before
+{
+    top: 0;
+    left: -0.4em;
+    height: 100%;
+    width: calc(100% + 0.8em);
+}
+
+.button_hola:hover::after,
+.button_hola:hover span::after
+{
+    transform: scaleY(0);
+}
+
+.button_hola:hover::before,
+.button_hola:hover span::before
+{
+    transform: scaleX(0);
+}
+
+.button_hola:hover span::after,
+.button_hola:hover span::before
+{
+    opacity: 0;
+}
+
+
+
+

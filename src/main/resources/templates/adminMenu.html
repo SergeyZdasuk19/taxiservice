@@ -3,10 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/css/Admin.css"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+          integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 </head>
 <body>
-<a href="/admin/cars">машины</a>
-<a href="/admin/taxidrivers">таксисты</a>
-<a href="/admin/users">пользователи</a>
+<header>
+    <div class="emblem">
+        <div style="background-color: yellow">
+            <img src="/images/frontal-taxi-cab.png">
+        </div>
+        <div style="background-color: yellow"></div>
+        <div style="background-color: yellow">
+            <a href="/main"><button type="button" class="btn btn-dark btn-lg">На главную</button></a>
+        </div>
+    </div>
+</header>
+<div class="mainBlock" style="background-color: #34383b;border-radius: 50px">
+    <div>
+        <a href="/admin/cars" class="button_hola buttonCars "> <i class="fas fa-taxi"></i> Машины</a>
+    </div>
+    <div>
+        <a href="/admin/taxidrivers" class="button_hola buttonCars"><i class="fas fa-user-secret"></i> Таксисты</a>
+    </div>
+    <div><a href="/admin/users" class="button_hola buttonCars"><i class="fas fa-user"></i> Пользователи</a>
+    </div>
+</div>
+
+
 </body>
 </html>

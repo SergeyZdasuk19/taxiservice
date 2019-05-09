@@ -1,8 +1,13 @@
 
-Ajavascript:S1442" Remove this usage of alert(...).(äòñ¶şÿÿÿÿ
-Qjavascript:EmptyBlockc")Either remove or fill this block of code.(·ÕÛ³8áÏ¸Ö§-
-Hjavascript:S1442" Remove this usage of alert(...).(ññÀƒÿÿÿÿÿ8Éñ”Ø¨-
-Ejavascript:S1116¤"Remove this empty statement.(ôŸìúÿÿÿÿ8Éñ”Ø¨-
-Qjavascript:EmptyBlockw")Either remove or fill this block of code.(·ÕÛ³8Éñ”Ø¨-
-Rjavascript:EmptyBlockˆ")Either remove or fill this block of code.(·ÕÛ³8Éñ”Ø¨-
-Pjavascript:UnusedVariable—"#Remove unused function 'calculate'.(ÅñÃ²8Éñ”Ø¨-
+Ojavascript:EmptyBlock")Either remove or fill this block of code.(·ÕÛ³8Éñ”Ø¨-
+Bjavascript:S1116"Remove this empty statement.(ôŸìúÿÿÿÿ8Éñ”Ø¨-
+Ojavascript:EmptyBlock")Either remove or fill this block of code.(·ÕÛ³8Éñ”Ø¨-
+Ojavascript:EmptyBlock")Either remove or fill this block of code.(·ÕÛ³8áÏ¸Ö§-
+Zjavascript:S878"5Remove use of all comma operators in this expression.(ÕõÜ’úÿÿÿÿ8Ç · ©-
+Ojavascript:EmptyBlock")Either remove or fill this block of code.(·ÕÛ³8Ç · ©-
+ojavascript:UnusedVariable"@Remove the declaration of the unused 'DELIVERY_TARIFF' variable.(û«†àüÿÿÿÿ8Ç · ©-
+gjavascript:UnusedVariable"=Remove the declaration of the unused 'MINIMUM_COST' variable.(æèÎ”8Ç · ©-
+`javascript:S1854"?Remove this useless assignment to local variable "MINIMUM_COST"(æèÎ”8Ç · ©-
+hjavascript:S1854"BRemove this useless assignment to local variable "DELIVERY_TARIFF"(û«†àüÿÿÿÿ8Ç · ©-
+‡javascript:S2703"aAdd the "let", "const" or "var" keyword to this declaration of "zoomControl" to make it explicit.(ƒ­ãöøÿÿÿÿ8Ç · ©-
+javascript:S2703"gAdd the "let", "const" or "var" keyword to this declaration of "routePanelControl" to make it explicit.(áÚ¹„ùÿÿÿÿ8Ç · ©-

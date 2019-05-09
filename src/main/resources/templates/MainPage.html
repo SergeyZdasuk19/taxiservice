@@ -21,7 +21,8 @@
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
             crossorigin="anonymous"></script>
     <script type="text/javascript" src="//w.24timezones.com/l.js" async></script>
-    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=ace57522-9e61-4e29-8a92-5ba343510794" type="text/javascript"></script>
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=ace57522-9e61-4e29-8a92-5ba343510794"
+            type="text/javascript"></script>
 </head>
 <body>
 <div class="mainBlock">
@@ -41,11 +42,16 @@
                             <li class="nav-item active"><a class="nav-link" href="#">Сервис</a></li>
                             <li><a class="nav-link" href="#">Мои заказы</a></li>
                             <li><a class="nav-link" href="#">Контакты</a></li>
-                            <div  th:each="role : ${user.roles}">
+                            <div th:each="role : ${user.roles}">
                                 <div th:switch="${role}">
-                                    <li  th:case="${T(taxiservice.entity.Role).ADMIN}"><a class="nav-link" href="/admin">Меню администратора</a></li>
-                                    <li th:case="${T(taxiservice.entity.Role).TAXIDRIVER}"><a class="nav-link" href="/taximenu">Меню таксиста</a></li>
-                                    <li th:case="${T(taxiservice.entity.Role).USER}"><a class="nav-link" href="/usermenu">Меню пользователя</a></li>
+                                    <li th:case="${T(taxiservice.entity.Role).ADMIN}"><a class="nav-link" href="/admin">Меню
+                                        администратора</a></li>
+                                    <li th:case="${T(taxiservice.entity.Role).TAXIDRIVER}"><a class="nav-link"
+                                                                                              href="/taximenu">Меню
+                                        таксиста</a></li>
+                                    <li th:case="${T(taxiservice.entity.Role).USER}"><a class="nav-link"
+                                                                                        href="/usermenu">Меню
+                                        пользователя</a></li>
                                 </div>
                             </div>
 
@@ -62,7 +68,8 @@
 
                 </button>
                 <button type="submit" class="btn btn-outline-success" data-toggle="modal"
-                        data-target="#exampleModal" >Заказать</button>
+                        data-target="#exampleModal">Заказать
+                </button>
             </div>
 
         </div>
@@ -72,25 +79,25 @@
         <div></div>
         <div id="map" style="opacity: 0"></div>
         <div class="newForCar">
-            <div id="first" class="section" >
-                    <div class="container">
-                        <input type="radio" name="group1" id="radio-1" value="Седан">
-                        <label for="radio-1"><span class="radio">
+            <div id="first" class="section">
+                <div class="container">
+                    <input type="radio" name="group1" id="radio-1" value="Седан">
+                    <label for="radio-1"><span class="radio">
                             <img src="/images/sedan-car-model.png"></span>
-                        </label>
-                    </div>
-                    <div class="container">
-                        <input type="radio" name="group1" id="radio-2" value="Хэтчбек">
-                        <label for="radio-2"><span class="radio">
+                    </label>
+                </div>
+                <div class="container">
+                    <input type="radio" name="group1" id="radio-2" value="Хэтчбек">
+                    <label for="radio-2"><span class="radio">
                             <img src="/images/car-of-hatchback-model.png">
                         </span></label>
-                    </div>
-                    <div class="container">
-                        <input type="radio" name="group1" id="radio-3" value="Купе">
-                        <label for="radio-3"><span class="radio"></span>
-                            <img src="/images/coupe-car.png">
-                        </label>
-                    </div>
+                </div>
+                <div class="container">
+                    <input type="radio" name="group1" id="radio-3" value="Купе">
+                    <label for="radio-3"><span class="radio"></span>
+                        <img src="/images/coupe-car.png">
+                    </label>
+                </div>
             </div>
         </div>
     </div>
@@ -111,45 +118,45 @@
             <form>
                 <div class="modal-body">
                     <div class="form-group row">
-                        <label  class="col-sm-2 col-form-label">Login</label>
+                        <label class="col-sm-2 col-form-label">Login</label>
                         <div class="col-sm-10">
                             <input type="text" name="username" class="form-control"
-                                   placeholder="Aleksey" >
+                                   placeholder="Aleksey">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">From</label>
                         <div class="col-sm-10">
                             <input type="text" name="placeFrom" class="form-control"
-                                   placeholder="Минск" >
+                                   placeholder="Минск">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">To</label>
                         <div class="col-sm-10">
                             <input type="text" name="placeTo" class="form-control"
-                                   placeholder="Орша" >
+                                   placeholder="Орша">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Car body</label>
                         <div class="col-sm-10">
                             <input type="text" name="carBody" class="form-control"
-                                   placeholder="Универсал" >
+                                   placeholder="Универсал">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Taxi driver name</label>
                         <div class="col-sm-10">
                             <input type="text" name="nameTaxi" class="form-control"
-                                   placeholder="Таксист ..." >
+                                   placeholder="Таксист ...">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Price, р</label>
                         <div class="col-sm-10">
                             <input type="text" name="price" class="form-control"
-                                   placeholder="Цена" >
+                                   placeholder="Цена">
                         </div>
                     </div>
                 </div>

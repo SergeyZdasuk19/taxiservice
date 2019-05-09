@@ -3,14 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/css/Cars.css"/>
 </head>
 <body>
-cars
-<div>
 
 
-    <table border="3">
-        <thead>
+<header>
+    <div class="emblem">
+        <div style="background-color: yellow">
+            <img src="/images/frontal-taxi-cab.png">
+        </div>
+        <div style="background-color: yellow"></div>
+        <div style="background-color: yellow">
+            <a href="/admin"><button type="button" class="btn btn-dark btn-lg">Меню</button></a>
+
+        </div>
+    </div>
+</header>
+
+<div class="mainBlock" style="background-color: #34383b;border-radius: 50px">
+    <div style="padding-top: 50px">
+        <table border="3" style="margin: 0 auto">
+            <thead>
             <tr>
                 <th>id</th>
                 <th>Марка</th>
@@ -18,39 +34,37 @@ cars
                 <th>Тип</th>
                 <th>Кол. мест</th>
                 <th>Гос. номер</th>
-
             </tr>
-        </thead>
-        <tbody>
-
+            </thead>
+            <tbody>
             <tr th:each="car : ${cars}">
-
                 <td th:utext="${car.id}"/>
                 <td th:utext="${car.mark}"/>
                 <td th:utext="${car.model}"/>
                 <td th:utext="${car.type}"/>
                 <td th:utext="${car.seatsnumber}"/>
                 <td th:utext="${car.govnumber}"/>
-
                 <td>
                     <form method="post" action="/admin/cars/remove">
                         <input type="hidden" name="carId" th:value="${car.id}"/>
-                        <input
-                                type="hidden"
-                                th:name="${_csrf.parameterName}"
-                                th:value="${_csrf.token}" />
-                        <button type="submit">Удалить</button>
+                        <input type="hidden"
+                               th:name="${_csrf.parameterName}"
+                               th:value="${_csrf.token}"/>
+                        <button class="buttonDelete" type="submit">Удалить</button>
                     </form>
                 </td>
-
                 <td>
-                    <a th:href="cars + '/' + edit + '/' + ${car.id}">Изменить</a>
+                    <a class="buttonEdit" th:href="cars + '/' + edit + '/' + ${car.id}">Изменить</a>
                 </td>
             </tr>
+            </tbody>
+        </table>
+        <a class="buttonAdd" href="/admin/cars/add">Добавить</a>
+    </div>
 
-        </tbody>
-    </table>
-    <a href="/admin/cars/add">Добавить</a>
 </div>
+
+
+
 </body>
 </html>

@@ -15,6 +15,15 @@ body {
     text-transform: uppercase;
     display: block;
 }
+.errorTitle{
+    font-family: Ubuntu-Bold;
+    font-size: 18px;
+    color: red;
+    line-height: 1.2;
+    text-align: center;
+    text-transform: uppercase;
+    display: block;
+}
 .labelReg{
     font-family: Ubuntu-Bold;
     font-size: 28px;
