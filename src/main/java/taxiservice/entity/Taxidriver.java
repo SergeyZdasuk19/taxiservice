@@ -1,6 +1,7 @@
 package taxiservice.entity;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 
 @Entity
@@ -83,5 +84,22 @@ public class Taxidriver {
                 ", user=" + user +
                 ", car=" + car +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Taxidriver that = (Taxidriver) o;
+        return isBusy == that.isBusy &&
+                Objects.equals(id, that.id) &&
+                Objects.equals(currentPoint, that.currentPoint) &&
+                Objects.equals(user, that.user) &&
+                Objects.equals(car, that.car);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, isBusy, currentPoint, user, car);
     }
 }
