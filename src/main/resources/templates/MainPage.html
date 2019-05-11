@@ -26,13 +26,6 @@
 </head>
 <body>
 <div class="mainBlock">
-    <form action="/logout" method="post">
-        <input
-                type="hidden"
-                th:name="${_csrf.parameterName}"
-                th:value="${_csrf.token}" />
-        <input type="submit" value="Sign Out"/>
-    </form>
     <header>
         <div class="blockOne">
             <div class="emblem" style="background-color: yellow">
@@ -72,14 +65,18 @@
                 <button type="button" id="f" class="btn btn-outline-secondary ">
                     <i class="fa fa-user-circle" aria-hidden="true"></i>
                     <span th:utext="${user.username}"/>
-
-
-
                 </button>
 
                 <button type="submit" class="btn btn-outline-success" data-toggle="modal"
                         data-target="#exampleModal">Заказать
                 </button>
+
+                <form action="/logout" method="post">
+                    <input   type="hidden"
+                            th:name="${_csrf.parameterName}"
+                            th:value="${_csrf.token}" />
+                    <input class="btn btn-outline-success" type="submit" value="Sign Out"/>
+                </form>
             </div>
 
         </div>
@@ -88,28 +85,7 @@
     <div class="blockTwo">
         <div></div>
         <div id="map" style="opacity: 0"></div>
-        <div class="newForCar">
-            <div id="first" class="section">
-                <div class="container">
-                    <input type="radio" name="group1" id="radio-1" value="Седан">
-                    <label for="radio-1"><span class="radio">
-                            <img src="/images/sedan-car-model.png"></span>
-                    </label>
-                </div>
-                <div class="container">
-                    <input type="radio" name="group1" id="radio-2" value="Хэтчбек">
-                    <label for="radio-2"><span class="radio">
-                            <img src="/images/car-of-hatchback-model.png">
-                        </span></label>
-                </div>
-                <div class="container">
-                    <input type="radio" name="group1" id="radio-3" value="Купе">
-                    <label for="radio-3"><span class="radio"></span>
-                        <img src="/images/coupe-car.png">
-                    </label>
-                </div>
-            </div>
-        </div>
+        <div></div>
     </div>
 
 </div>
@@ -148,20 +124,7 @@
                                    placeholder="Орша">
                         </div>
                     </div>
-                    <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Car body</label>
-                        <div class="col-sm-10">
-                            <input type="text" name="carBody" class="form-control"
-                                   placeholder="Универсал">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Taxi driver name</label>
-                        <div class="col-sm-10">
-                            <input type="text" name="nameTaxi" class="form-control"
-                                   placeholder="Таксист ...">
-                        </div>
-                    </div>
+
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Price, р</label>
                         <div class="col-sm-10">

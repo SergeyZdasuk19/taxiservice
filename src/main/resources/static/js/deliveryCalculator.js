@@ -4,11 +4,15 @@ $(document).ready(function () {
         $('input[name$="username"]').val($('.btn.btn-outline-secondary span').text());
         $('input[name$="placeFrom"]').val($('input[placeholder$="Откуда"]').val());
         $('input[name$="placeTo"]').val($('input[placeholder$="Куда"]').val());
-        $('input[name$="carBody"]').val($('input[name$="group1"]:checked').val());
+        $('input[name$="price"]').val(map.get(1));
+
     });
 
 });
+function changeStyle(){
+    alert('s');
 
+}
 ymaps.ready(geoFindMe);
 
 function addFirstPriceToModal() {
@@ -29,6 +33,10 @@ function addThirdPriceToModal() {
 
 function change() {
     $('#map').css({"opacity": '1'});
+    $('.ymaps-2-1-73-route-panel__input ymaps-2-1-73-route-panel__input_from').css({"background-color": 'black'});
+    $('.ymaps-2-1-73-route-panel__input ymaps-2-1-73-route-panel__input_from').css({"position": 'absolute'});
+    $('.ymaps-2-1-73-route-panel__input ymaps-2-1-73-route-panel__input_from').css({"z-index": '10'});
+    $('.ymaps-2-1-73-route-panel__input ymaps-2-1-73-route-panel__input_from').css({"right": '70px'});
     $('div.cssload-spin-box').toggleClass('newForAnimation');
     $('div.cssload-spin-box').toggleClass('cssload-spin-box');
     changeTextOfInput();
@@ -109,88 +117,6 @@ function init(latitude, longitude) {
         }
     ];
 
-
-    myPlacemarkFirst = new ymaps.Placemark(num[0].coordinates, {
-        balloonContentBody: [].join('')
-    });
-    myPlacemarkSecond = new ymaps.Placemark(num[1].coordinates, {
-        balloonContentBody: [].join('')
-    });
-    myPlacemarkThird = new ymaps.Placemark(num[2].coordinates, {
-        balloonContentBody: [].join('')
-    });
-    myMap.geoObjects.add(myPlacemarkFirst);
-    myMap.geoObjects.add(myPlacemarkSecond);
-    myMap.geoObjects.add(myPlacemarkThird);
-
-    for (var i = 0; i < num.length; i++) {
-        if (i == 0) {
-            ymaps.route([latitude + " " + longitude, myPlacemarkFirst.geometry.getCoordinates()], {mapStateAutoApply: true}).then(
-                function (route) {
-                    myMap.geoObjects.add(route);
-                    var distance = route.getHumanLength().replace(/&#160;км/i, '');
-                    var price = calculate(distance);
-                    map.set(1, price);
-                    myPlacemarkFirst.properties.set('balloonContentBody', '<button type="button" class="btn btn-warning" onclick="addFirstPriceToModal()">Aleksey</button><br></br>' + route.getHumanLength());
-                    myMap.geoObjects.remove(route);
-                }
-            );
-            if ($('input[placeholder$="Откуда"]').val() == '' && $('input[placeholder$="Куда"]').val() == '') {
-
-            }
-            else {
-                setTimeout(cl, 2000);
-            }
-
-
-        }
-
-
-        if (i == 1) {
-
-            ymaps.route([latitude + " " + longitude, myPlacemarkSecond.geometry.getCoordinates()], {mapStateAutoApply: true}).then(
-                function (route) {
-                    myMap.geoObjects.add(route);
-                    var distance = route.getHumanLength().replace(/&#160;км/i, '');
-                    var price = calculate(distance);
-                    map.set(2, price);
-                    myPlacemarkSecond.properties.set('balloonContentBody', '<button type="button" class="btn btn-warning" onclick="addSecondPriceToModal()">Vitaliy</button><br></br>' + route.getHumanLength());
-                    myMap.geoObjects.remove(route);
-                }
-            );
-            if ($('input[placeholder$="Откуда"]').val() == '' && $('input[placeholder$="Куда"]').val() == '') {
-
-            }
-            else {
-                setTimeout(cl, 2000);
-            }
-        }
-
-
-        if (i == 2) {
-            ymaps.route([latitude + " " + longitude, myPlacemarkThird.geometry.getCoordinates()], {mapStateAutoApply: true}).then(
-                function (route) {
-                    myMap.geoObjects.add(route);
-                    var distance = route.getHumanLength().replace(/&#160;км/i, '');
-                    var price = calculate(distance);
-                    map.set(3, price);
-                    myPlacemarkThird.properties.set('balloonContentBody', '<button type="button" class="btn btn-warning" onclick="addThirdPriceToModal()">Andrey</button><br></br>' + route.getHumanLength());
-                    myMap.geoObjects.remove(route);
-                }
-            );
-            if ($('input[placeholder$="Откуда"]').val() == '' && $('input[placeholder$="Куда"]').val() == '') {
-
-            }
-            else {
-                setTimeout(cl, 2000);
-                setTimeout(change, 5000);
-            }
-        }
-
-
-    }
-    addInfoToInputFirst();
-
     function calculate(routeLength) {
         return routeLength * 0.5;
     }
@@ -201,9 +127,8 @@ function init(latitude, longitude) {
         $('div.newForAnimation').toggleClass('newForAnimation');
         for (var i = 0; i < num.length; i++) {
             if (i == 0) {
-                ymaps.route([$('input[placeholder$="Откуда"]').val(), myPlacemarkFirst.geometry.getCoordinates()], {mapStateAutoApply: true}).then(
-                    function (route) {
-                        myMap.geoObjects.add(route);
+
+
                         var distanceMarkerTo = route.getHumanLength().replace(/&#160;км/i, '');
                         var price;
                         ymaps.route([$('input[placeholder$="Откуда"]').val(), $('input[placeholder$="Куда"]').val()], {mapStateAutoApply: true}).then(
@@ -211,12 +136,10 @@ function init(latitude, longitude) {
                                 myMap.geoObjects.add(routeFirst);
                                 price = calculate(routeFirst.getHumanLength().replace(/&#160;км/i, ''));
                                 map.set(1, price);
-                                myPlacemarkFirst.properties.set('balloonContentBody', '<button type="button" class="btn btn-warning" onclick="addFirstPriceToModal()">Aleksey</button><br></br>' + distanceMarkerTo + ' км<span id="priceFirst"> ' + price + ' р </span>');
                                 myMap.geoObjects.remove(routeFirst);
                             }
-                        );
-                        myMap.geoObjects.remove(route);
-                    }
+
+
                 );
             }
 
@@ -277,6 +200,7 @@ function init(latitude, longitude) {
 
 
 function geoFindMe() {
+
     function success(position) {
         var latitude = position.coords.latitude;
         var longitude = position.coords.longitude;
