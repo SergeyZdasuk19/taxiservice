@@ -27,6 +27,13 @@ public class Taxidriver {
     public Taxidriver() {
     }
 
+    public Taxidriver(boolean isBusy, Point currentPoint, User user, Car car) {
+        this.isBusy = isBusy;
+        this.currentPoint = currentPoint;
+        this.user = user;
+        this.car = car;
+    }
+
     public Long getId() {
         return id;
     }
@@ -65,5 +72,16 @@ public class Taxidriver {
 
     public void setCar(Car car) {
         this.car = car;
+    }
+
+    @Override
+    public String toString() {
+        return "Taxidriver{" +
+                "id=" + id +
+                ", isBusy=" + isBusy +
+                ", currentPoint=" + currentPoint +
+                ", user=" + user +
+                ", car=" + car +
+                '}';
     }
 }

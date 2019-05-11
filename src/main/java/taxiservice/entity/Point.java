@@ -21,6 +21,10 @@ public class Point {
         this.y = y;
     }
 
+    public Point(String address) {
+        this.address = address;
+    }
+
     public String getAddress() {
         return address;
     }

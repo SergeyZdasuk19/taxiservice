@@ -1,6 +1,7 @@
 package taxiservice.entity;
 
 import javax.persistence.*;
+import java.util.Iterator;
 
 @Entity
 @Table(name = "car")
@@ -73,5 +74,27 @@ public class Car {
 
     public void setGovnumber(String govnumber) {
         this.govnumber = govnumber;
+    }
+
+    public static void findFreeCar(Iterable<Car> cars, Iterable<Taxidriver> taxidrivers){ //доделать и проверить
+        Iterator<Car> iterator = cars.iterator();
+        Iterator<Taxidriver> iteratorTaxi = taxidrivers.iterator();
+
+        while(iterator.hasNext()){
+            Car car = iterator.next();
+
+            while (iteratorTaxi.hasNext()){
+
+                Taxidriver taxidriver = iteratorTaxi.next();
+                if(taxidriver.getCar().getId().equals(car.getId())){
+                    iterator.remove();
+                    break;
+                }
+
+            }
+
+
+        }
+
     }
 }

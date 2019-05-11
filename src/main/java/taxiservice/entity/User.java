@@ -4,6 +4,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import javax.persistence.*;
 import java.util.Collection;
+import java.util.Iterator;
 import java.util.Set;
 
 @Entity
@@ -131,8 +132,49 @@ public class User implements UserDetails {
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", active=" + active +
-                ", person=" + person.getId() +
+                //", person=" + person.getId() +
                 ", roles=" + roles +
                 '}';
+    }
+
+    public static void findTaxist(Iterable<User> users){ //доделать и проверить
+        Iterator<User> iterator = users.iterator();
+
+        while(iterator.hasNext()){
+            User curUser = iterator.next();
+            if(!curUser.getRoles().contains(Role.TAXIDRIVER)) iterator.remove();
+        }
+
+    }
+
+    public static void findFreeTaxist(Iterable<User> users, Iterable<Taxidriver> taxidrivers){ //доделать и проверить
+        Iterator<User> iterator = users.iterator();
+        Iterator<Taxidriver> iteratorTaxi = taxidrivers.iterator();
+
+       // System.out.println(users);
+        //System.out.println(taxidrivers);
+        while(iterator.hasNext()){
+            User curUser = iterator.next();
+
+            //if (curUser.getRoles().contains(Role.ADMIN)) System.out.println("admin");
+            if(!curUser.getRoles().contains(Role.TAXIDRIVER)) {
+                iterator.remove();
+                //System.out.println(curUser.getRoles() + " remove");
+                continue;
+            }
+
+            while (iteratorTaxi.hasNext()){
+
+                Taxidriver taxidriver = iteratorTaxi.next();
+                if(taxidriver.getUser().getId().equals(curUser.getId())){
+                    iterator.remove();
+                    break;
+                }
+
+            }
+
+
+        }
+       // System.out.println(users);
     }
 }

@@ -8,11 +8,14 @@ import taxiservice.entity.Car;
 import taxiservice.entity.User;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 public interface UserRepo extends JpaRepository<User, Long> {
 
 
     User findByUsername(String username);
+
+
 
     User findById(long id);
 
@@ -24,6 +27,9 @@ public interface UserRepo extends JpaRepository<User, Long> {
                     @Param("username") String username,
                     @Param("password") String password,
                     @Param("active") Boolean active);
+
+
+
 
 
 

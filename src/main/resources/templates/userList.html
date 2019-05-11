@@ -30,7 +30,7 @@ users
             <td th:utext="${user.id}"/>
             <td th:utext="${user.username}"/>
             <td th:utext="${user.password}"/>
-            <td th:utext="${user.active}"/>
+            <td th:text="${user.active} ? 'Активен' : 'Неактивен'" />
 
             <div  th:each="role : ${user.roles}">
                 <td th:utext="${role}"/>
