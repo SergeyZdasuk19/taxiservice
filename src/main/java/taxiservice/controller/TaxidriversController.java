@@ -14,6 +14,8 @@ import taxiservice.repository.CarRepo;
 import taxiservice.repository.TaxidriverRepo;
 import taxiservice.repository.UserRepo;
 
+import java.util.List;
+
 @Controller
 @PreAuthorize("hasAuthority('ADMIN')")
 @RequestMapping("/admin/taxidrivers")
@@ -43,11 +45,13 @@ public class TaxidriversController {
         Iterable<Taxidriver> taxidrivers = taxidriverRepo.findAll();
 
         Iterable<User> users = userRepo.findAll();
+
         User.findFreeTaxist(users, taxidrivers);
 
         model.addAttribute("taxists", users);
 
         Iterable<Car> cars = carRepo.findAll();
+;
         Car.findFreeCar(cars, taxidrivers);
 
         //System.out.println("controller - " + users);
@@ -81,6 +85,56 @@ public class TaxidriversController {
 
         Taxidriver taxidriver = taxidriverRepo.findById(taxidriverId).orElse(new Taxidriver());
         taxidriverRepo.delete(taxidriver);
+
+        return "redirect:/admin/taxidrivers";
+    }
+
+    @GetMapping("/edit/{id}")
+    public String editTaxidriverForm(
+            @RequestParam(name="message", required = false) String message,
+            @PathVariable("id") Long taxidriverId,
+            Model model) {
+
+        //if(message!=null && message.equals("errphone")) model.addAttribute("message", "Человек с таким телефоном уже существует");
+        Taxidriver taxidriver = taxidriverRepo.findById(taxidriverId).orElse(new Taxidriver());
+
+        model.addAttribute("taxidriver", taxidriver);
+
+        Iterable<Taxidriver> taxidrivers = taxidriverRepo.findAll();
+
+        Iterable<User> users = userRepo.findAll();
+        User.findFreeTaxist(users, taxidrivers);
+
+
+        ((List<User>) users).add(taxidriver.getUser());
+        model.addAttribute("taxists", users);
+
+        Iterable<Car> cars = carRepo.findAll();
+        Car.findFreeCar(cars, taxidrivers, taxidriver);
+
+        //System.out.println("controller - " + users);
+        model.addAttribute("cars", cars);
+        return "taxidriverEdit";
+    }
+
+    @PostMapping("/edit/{id}")
+    public String editTaxidriver(
+            @AuthenticationPrincipal User curUser,
+            @RequestParam("carId") Car car,
+            @RequestParam("taxistId") User user,
+            @RequestParam("taxidriverId") Taxidriver taxidriver,
+            @RequestParam Boolean status,
+            @RequestParam String currentLocation,
+            Model model
+    )
+    {
+        taxidriver.setCar(car);
+        taxidriver.setUser(user);
+        taxidriver.setBusy(status);
+        taxidriver.getCurrentPoint().setAddress(currentLocation);
+        taxidriverRepo.save(taxidriver);
+        //Car car = carRepo.findById(carId).orElse(new Car());
+
 
         return "redirect:/admin/taxidrivers";
     }

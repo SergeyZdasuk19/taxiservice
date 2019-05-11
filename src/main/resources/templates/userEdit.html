@@ -15,15 +15,15 @@
 
         <div  th:each="role : ${user.roles}">
             <select name="role">
-                <option value="USER" th:selected="${role == 'USER'}"> Пользователь </option>
-                <option value="ADMIN" th:selected="${role == 'ADMIN'}"> Администратор </option>
-                <option value="TAXIDRIVER" th:selected="${role == 'TAXIDRIVER'}"> Таксист </option>
-
+                <option value="USER" th:selected="${role == T(taxiservice.entity.Role).USER}"> Пользователь </option>
+                <option value="ADMIN" th:selected="${role == T(taxiservice.entity.Role).ADMIN}"> Администратор </option>
+                <option value="TAXIDRIVER" th:selected="${role == T(taxiservice.entity.Role).TAXIDRIVER}"> Таксист </option>
             </select>
         </div>
         <input type="text" name="name" th:value="${user.person} ? ${user.person.name} : ''" />
         <input type="text" name="surname" th:value="${user.person} ? ${user.person.surname} : ''" />
         <input type="text" name="phoneNumber" th:value="${user.person} ? ${user.person.phoneNumber} : ''" />
+
         <input
                 type="hidden"
                 th:name="userId"

@@ -5,6 +5,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.Objects;
 import java.util.Set;
 
 @Entity
@@ -137,6 +138,24 @@ public class User implements UserDetails {
                 '}';
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return active == user.active &&
+                Objects.equals(id, user.id) &&
+                Objects.equals(username, user.username) &&
+                Objects.equals(password, user.password) &&
+                Objects.equals(person, user.person) &&
+                Objects.equals(roles, user.roles);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, username, password, active, person, roles);
+    }
+
     public static void findTaxist(Iterable<User> users){ //доделать и проверить
         Iterator<User> iterator = users.iterator();
 
@@ -149,7 +168,7 @@ public class User implements UserDetails {
 
     public static void findFreeTaxist(Iterable<User> users, Iterable<Taxidriver> taxidrivers){ //доделать и проверить
         Iterator<User> iterator = users.iterator();
-        Iterator<Taxidriver> iteratorTaxi = taxidrivers.iterator();
+
 
        // System.out.println(users);
         //System.out.println(taxidrivers);
@@ -163,6 +182,7 @@ public class User implements UserDetails {
                 continue;
             }
 
+            Iterator<Taxidriver> iteratorTaxi = taxidrivers.iterator();
             while (iteratorTaxi.hasNext()){
 
                 Taxidriver taxidriver = iteratorTaxi.next();
