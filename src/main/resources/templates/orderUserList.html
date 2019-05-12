@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/css/Cars.css"/>
+</head>
+<body>
+
+
+<header>
+    <div class="emblem">
+        <div style="background-color: yellow">
+            <img src="/images/frontal-taxi-cab.png">
+        </div>
+        <div style="background-color: yellow"></div>
+        <div style="background-color: yellow">
+            <a href="/main"><button type="button" class="btn btn-dark btn-lg">Меню</button></a>
+
+        </div>
+    </div>
+</header>
+
+<div class="mainBlock" style="background-color: #34383b;border-radius: 50px">
+    <div style="padding-top: 50px">
+        <table border="3" style="margin: 0 auto">
+            <thead>
+            <tr>
+                <th>id</th>
+                <th>Откуда</th>
+                <th>Куда</th>
+                <th>Цена</th>
+                <th>Статус</th>
+                <th>Имя таксиста</th>
+                <th>Телефон таксиста</th>
+                <th>Имя заказчика</th>
+                <th>Телефон заказчика</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="order : ${orders}">
+                <td th:utext="${order.id}"/>
+                <td th:utext="${order.departurePoint.address}"/>
+                <td th:utext="${order.arrivalPoint.address}"/>
+                <td th:utext="${order.price} + ' бел. руб'"/>
+                <td th:utext="${order.status}"/>
+                <td th:text="${order.taxidriver} ? ${order.taxidriver.user.person.name} : 'Пусто'"/>
+                <td th:text="${order.taxidriver} ? ${order.taxidriver.user.person.phoneNumber} : 'Пусто'"/>
+                <td th:text="${order.user} ? ${order.user.person.name} : 'Пусто'"/>
+                <td th:text="${order.user} ? ${order.user.person.phoneNumber} : 'Пусто'"/>
+                <td>
+                    <form method="post" action="/orders/status/?message=cancel">
+                        <input type="hidden" name="orderId" th:value="${order.id}"/>
+                        <input type="hidden"
+                               th:name="${_csrf.parameterName}"
+                               th:value="${_csrf.token}"/>
+                        <button class="buttonDelete" type="submit">Отменить</button>
+                    </form>
+                </td>
+
+            </tr>
+            </tbody>
+        </table>
+        <a class="buttonAdd" href="/main">Добавить</a>
+    </div>
+
+</div>
+
+
+
+</body>
+</html>

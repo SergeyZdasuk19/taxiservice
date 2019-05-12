@@ -38,7 +38,7 @@
                 <div class='navOne'>
                     <ul>
                         <li><a class="aOne" href='#'>Сервис</a></li>
-                        <li><a class="aOne" href='#'>Мои заказы</a></li>
+                        <li><a class="aOne" th:href="'/orders/' + ${user.id}">Мои заказы</a></li>
                         <li><a class="aOne" href='#'>Контакты</a></li>
                         <div  th:each="role : ${user.roles}">
                             <div th:switch="${role}">
@@ -51,7 +51,7 @@
                                     </ul>
                                 </li>
                                 <li th:case="${T(taxiservice.entity.Role).TAXIDRIVER}"><a class="nav-link"
-                                                                                          href="/taximenu">Меню
+                                                                                          href="/orders">Меню
                                     таксиста</a></li>
                                 <li th:case="${T(taxiservice.entity.Role).USER}"><a class="nav-link"
                                                                                     href="/usermenu">Меню
@@ -115,7 +115,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form>
+            <form method="post">
                 <div class="modal-body">
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Login</label>
@@ -149,8 +149,11 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
-                    <button type="submit" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+                    <input
+                            type="hidden"
+                            th:name="${_csrf.parameterName}"
+                            th:value="${_csrf.token}" />
+                    <button type="submit"> Заказать </button>
                 </div>
             </form>
         </div>

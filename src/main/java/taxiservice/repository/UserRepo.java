@@ -12,10 +12,7 @@ import java.util.List;
 
 public interface UserRepo extends JpaRepository<User, Long> {
 
-
     User findByUsername(String username);
-
-
 
     User findById(long id);
 
