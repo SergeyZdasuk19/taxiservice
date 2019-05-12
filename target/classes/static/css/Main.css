@@ -3,44 +3,71 @@ body {
     padding: 0;
 }
 
-.mainMenu a:before, .mainMenu a:after {
+.aOne:before, .aOne:after {
     content: "";
     position: absolute;
     height: 4px;
     right: 50%;
-    top: 55px;
+    top: 51px;
     left: 50%;
     background: #feb386;
     transition: .8s;
+}
 
+.aTwo:before, .aTwo:after{
+    content: "";
+    position: absolute;
+    height: 4px;
+    right: 50%;
+    top: 29px;
+    left: 50%;
+    background: #feb386;
+    transition: .8s;
+    color: white;
 }
 
 .mainMenu a:hover:before {
     left: 0;
+
 }
 
 .mainMenu a:hover:after {
     right: 0;
+
 }
+
 
 .mainMenu a {
     text-decoration: none;
     font-family: 'Ubuntu Condensed', sans-serif;
     letter-spacing: 2px;
     position: relative;
-    margin-top: 5px;
+    margin-top: 0px;
     padding-bottom: 0px;
     font-size: 15px;
     text-transform: uppercase;
     display: inline-block;
     transition: color .2s;
 }
-
-.mainMenu > nav > div > ul > li {
-    margin-left: 10px;
-    margin-right: 10px;
+.liOne a {
+    text-decoration: none;
+    font-family: 'Ubuntu Condensed', sans-serif;
+    letter-spacing: 2px;
+    position: relative;
+    margin-top: 8px;
+    padding-bottom: 0px;
+    font-size: 15px;
+    text-transform: uppercase;
+    display: inline-block;
+    transition: color .2s;
+    color: white;
 }
-
+.liOne a:hover{
+    color: white;
+}
+.liOne ul li a:hover{
+    color: #feb386;
+}
 .emblem > img {
     margin-left: 15%;
     margin-top: 2%;
@@ -62,13 +89,13 @@ body {
 
 .blockOne {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 2fr 1fr;
     grid-template-rows: 78px;
 }
 
 .blockTwo {
     display: grid;
-    grid-template-columns: 0.7fr 2fr 0.6fr;
+    grid-template-columns: 2fr 0.6fr;
 }
 
 .mainBlock {
@@ -173,6 +200,22 @@ input[type="radio"]:checked + label span.radio::after {
     left: 1020px;
 }
 
-.newForCar{
+.znak {
 
 }
+
+.znak:before {
+    font-family: FontAwesome;
+    content: "\f07a";
+    position: absolute;
+    bottom: 0px;
+    transition: all 200ms ease;
+    color: #34383b;
+}
+
+.znak:hover:before {
+    top: 190px;
+    right: 190px;
+}
+
+

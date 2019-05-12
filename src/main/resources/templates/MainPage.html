@@ -10,7 +10,9 @@
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
           integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="/css/animation.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/menu.css"/>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
             integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
             crossorigin="anonymous"></script>
@@ -33,59 +35,71 @@
             </div>
 
             <div class="mainMenu" style="background-color: #6c757d">
-                <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar2"
-                            aria-controls="navbar2" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbar2">
-                        <ul class="navbar-nav mr-auto">
-                            <li class="nav-item active"><a class="nav-link" href="#">Сервис</a></li>
-                            <li><a class="nav-link" href="#">Мои заказы</a></li>
-                            <li><a class="nav-link" href="#">Контакты</a></li>
-                            <div th:each="role : ${user.roles}">
-                                <div th:switch="${role}">
-                                    <li th:case="${T(taxiservice.entity.Role).ADMIN}"><a class="nav-link" href="/admin">Меню
-                                        администратора</a></li>
-                                    <li th:case="${T(taxiservice.entity.Role).TAXIDRIVER}"><a class="nav-link"
-                                                                                              href="/taximenu">Меню
-                                        таксиста</a></li>
-                                    <li th:case="${T(taxiservice.entity.Role).USER}"><a class="nav-link"
-                                                                                        href="/usermenu">Меню
-                                        пользователя</a></li>
-                                </div>
+                <div class='navOne'>
+                    <ul>
+                        <li><a class="aOne" href='#'>Сервис</a></li>
+                        <li><a class="aOne" href='#'>Мои заказы</a></li>
+                        <li><a class="aOne" href='#'>Контакты</a></li>
+                        <div  th:each="role : ${user.roles}">
+                            <div th:switch="${role}">
+                                <li class="liOne" th:case="${T(taxiservice.entity.Role).ADMIN}"><a  class="aTwo" href="/admin">Меню
+                                    администратора</a>
+                                    <ul>
+                                        <li><a href="/admin/cars" class="button_hola buttonCars "> <i class="fas fa-taxi"></i> Машины</a></li>
+                                        <li> <a href="/admin/taxidrivers" class="button_hola buttonCars"><i class="fas fa-user-secret"></i> Таксисты</a></li>
+                                        <li><a href="/admin/users" class="button_hola buttonCars"><i class="fas fa-user"></i> Пользователи</a></li>
+                                    </ul>
+                                </li>
+                                <li th:case="${T(taxiservice.entity.Role).TAXIDRIVER}"><a class="nav-link"
+                                                                                          href="/taximenu">Меню
+                                    таксиста</a></li>
+                                <li th:case="${T(taxiservice.entity.Role).USER}"><a class="nav-link"
+                                                                                    href="/usermenu">Меню
+                                    пользователя</a></li>
                             </div>
-
-
-                        </ul>
-                    </div>
-                </nav>
+                        </div>
+                    </ul>
+                </div>
             </div>
             <div class="accaunt" style="background-color: yellow">
-                <button type="button" id="f" class="btn btn-outline-secondary ">
-                    <i class="fa fa-user-circle" aria-hidden="true"></i>
-                    <span th:utext="${user.username}"/>
-                </button>
+                <div class="nav">
+                    <ul>
+                        <li>
+                            <button type="button" id="f" class="btn btn-outline-secondary" style="margin-left: 200px">
+                                <i class="fa fa-user-circle" aria-hidden="true"></i>
+                                <span th:utext="${user.username}"/>
+                            </button>
+                            <ul>
+                                <li><a>
+                                    <form action="/logout" method="post">
+                                        <input type="hidden"
+                                               th:name="${_csrf.parameterName}"
+                                               th:value="${_csrf.token}"/>
+                                        <input class="btn btn-danger" type="submit" value="Sign Out"/>
+                                    </form>
+                                </a></li>
 
-                <button type="submit" class="btn btn-outline-success" data-toggle="modal"
-                        data-target="#exampleModal">Заказать
-                </button>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
 
-                <form action="/logout" method="post">
-                    <input   type="hidden"
-                            th:name="${_csrf.parameterName}"
-                            th:value="${_csrf.token}" />
-                    <input class="btn btn-outline-success" type="submit" value="Sign Out"/>
-                </form>
+
+
             </div>
 
         </div>
     </header>
     <div class="cssload-spin-box"></div>
     <div class="blockTwo">
-        <div></div>
-        <div id="map" style="opacity: 0"></div>
-        <div></div>
+        <div id="map"></div>
+        <div>
+            <button type="submit" class="znak btn btn-outline-success btn-lg "
+                    style="margin-top: 100px;margin-left: 100px; padding: 10px 50px;overflow:hidden;"
+                    data-toggle="modal"
+                    data-target="#exampleModal">Заказать
+            </button>
+        </div>
     </div>
 
 </div>
@@ -147,6 +161,7 @@
 <script src="/js/Main.js"></script>
 <script src="/js/Clockjs.js"></script>
 <script src="/js/deliveryCalculator.js" type="text/javascript"></script>
+<script src="/js/buttons.js"></script>
 </body>
 
 </html>

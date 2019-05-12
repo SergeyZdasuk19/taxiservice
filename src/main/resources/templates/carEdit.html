@@ -16,22 +16,59 @@
             </div>
             <div style="background-color: yellow"></div>
             <div style="background-color: yellow">
-                <a href="/admin"><button type="button" class="btn btn-dark btn-lg">Меню</button></a>
+                <a href="/main">
+                    <button type="button" class="btn btn-dark btn-lg">Меню</button>
+                </a>
             </div>
         </div>
     </header>
-    <div class="mainBlock" style="background-color: #34383b;border-radius: 50px">
-        <div style="padding-top: 50px">
-            <form method="post" style="margin: 0 auto">
-                <input type="text" name="mark" th:value="${car.mark}"/>
-                <input type="text" name="carmodel" th:value="${car.model}"/>
-                <input type="text" name="type" th:value="${car.type}"/>
-                <input type="number" name="seats" th:value="${car.seatsnumber}"/>
-                <input type="text" name="govnumber" th:value="${car.govnumber}"/>
-                <input type="hidden"
-                       th:name="${_csrf.parameterName}"
-                       th:value="${_csrf.token}"/>
-                <button type="submit">Изменить</button>
+    <div class="mainBlock" style="background-color: #34383b;border-radius: 50px;padding-top: 80px">
+        <div style="background-color: darkkhaki;margin: 0 auto;width: 600px;border-radius: 20px">
+            <form method="post" style="margin-left: 15%;padding-top: 20px">
+                <div class="modal-body">
+
+                    <div class="form-group row" >
+                        <div class="col-sm-10">
+                            <input type="text" name="mark" class="form-control"
+                                   placeholder="Введите марку" th:value="${car.mark}">
+                        </div>
+                    </div>
+                    <div class="form-group row" >
+                        <div class="col-sm-10">
+                            <input type="text" name="carmodek" class="form-control"
+                                   placeholder="Введите модель" th:value="${car.model}">
+                        </div>
+                    </div>
+                    <div class="form-group row" >
+                        <div class="col-sm-10">
+                            <input type="text" name="type" class="form-control"
+                                   placeholder="Введите тип кузова" th:value="${car.type}">
+                        </div>
+                    </div>
+                    <div class="form-group row" >
+                        <div class="col-sm-10">
+                            <input type="number" name="seats" class="form-control"
+                                   placeholder="Введите тип кузова" th:value="${car.seatsnumber}">
+                        </div>
+                    </div>
+                    <div class="form-group row" >
+                        <div class="col-sm-10">
+                            <input type="text" name="govnumber" class="form-control"
+                                   placeholder="Введите гос. номер" th:value="${car.govnumber}">
+                        </div>
+                    </div>
+                    <div class="form-group row" >
+                        <div class="col-sm-10">
+                            <input type="hidden" class="form-control"
+                                   th:name="${_csrf.parameterName}"
+                                   th:value="${_csrf.token}"/>
+                        </div>
+                    </div>
+
+                    <button class="buttonEdit" type="submit">Изменить</button>
+
+
+                </div>
             </form>
         </div>
     </div>

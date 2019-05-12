@@ -27,49 +27,57 @@
         <form method="post" style="margin-left: 15%;padding-top: 20px">
             <div class="modal-body">
 
-                <select name="taxistId">
-                    <div th:each="taxist : ${taxists}">
-
-                    <option th:value="${taxist.id}">
-                        <span th:utext="${taxist.person.name} + ' ' + ${taxist.person.surname}"/>
-                    </option>
-
+                <div class="form-group row">
+                    <div class="col-sm-10">
+                        <select class="form-control" name="taxistId">
+                            <div th:each="taxist : ${taxists}">
+                                <option th:value="${taxist.id}">
+                                    <span th:utext="${taxist.person.name} + ' ' + ${taxist.person.surname}"/>
+                                </option>
+                            </div>
+                        </select>
                     </div>
-                </select>
+                </div>
 
-                <select name="carId">
-                    <div th:each="car : ${cars}">
 
-                        <option th:value="${car.id}">
-                            <span th:utext="${car.mark} + ' ' + ${car.model} + ' ' + ${car.govnumber}"/>
-                        </option>
-
+                <div class="form-group row">
+                    <div class="col-sm-10">
+                        <select class="form-control" name="carId">
+                            <div th:each="car : ${cars}">
+                                <option th:value="${car.id}">
+                                    <span th:utext="${car.mark} + ' ' + ${car.model} + ' ' + ${car.govnumber}"/>
+                                </option>
+                            </div>
+                        </select>
                     </div>
-                </select>
+                </div>
 
 
-                <div class="form-group row" >
+                <div class="form-group row">
                     <div class="col-sm-10">
                         <input type="text" name="currentLocation" class="form-control"
                                placeholder="Введите место нахождение">
                     </div>
                 </div>
 
-                <select name="status">
+                <div class="form-group row">
+                    <div class="col-sm-10">
+                        <select class="form-control" name="status">
 
-                    <option value="true">
-                        Занят
-                    </option>
+                            <option value="true">
+                                Занят
+                            </option>
 
-                    <option value="false">
-                        Свободен
-                    </option>
+                            <option value="false">
+                                Свободен
+                            </option>
 
-                </select>
+                        </select>
+                    </div>
+                </div>
 
 
-
-                <div class="form-group row" >
+                <div class="form-group row">
                     <div class="col-sm-10">
                         <input type="hidden" class="form-control"
                                th:name="${_csrf.parameterName}"

@@ -3,62 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/css/user.css"/>
 </head>
 <body>
-users
-<div>
+<header>
+    <div class="emblem">
+        <div style="background-color: yellow">
+            <img src="/images/frontal-taxi-cab.png">
+        </div>
+        <div style="background-color: yellow"></div>
+        <div style="background-color: yellow">
+            <a href="/main">
+                <button type="button" class="btn btn-dark btn-lg">Меню</button>
+            </a>
 
-    <td th:text="${message} ?: null" />
-    <table border="3">
-        <thead>
-        <tr>
-            <th>id</th>
-            <th>Логин</th>
-            <th>Пароль</th>
-            <th>Статус</th>
-            <th>Роль</th>
-            <th>Имя</th>
-            <th>Фамилия</th>
-            <th>Номер телефона</th>
+        </div>
+    </div>
+</header>
+<div class="mainBlock" style="background-color: #34383b;border-radius: 50px">
+    <div style="padding-top: 50px">
+        <td th:text="${message} ?: null"/>
+        <table border="3" style="margin: 0 auto">
+            <thead>
+            <tr>
+                <th>id</th>
+                <th>Логин</th>
+                <th>Пароль</th>
+                <th>Статус</th>
+                <th>Роль</th>
+                <th>Имя</th>
+                <th>Фамилия</th>
+                <th>Номер телефона</th>
 
-        </tr>
-        </thead>
-        <tbody>
+            </tr>
+            </thead>
+            <tbody>
 
-        <tr th:each="user : ${users}">
+            <tr th:each="user : ${users}">
 
-            <td th:utext="${user.id}"/>
-            <td th:utext="${user.username}"/>
-            <td th:utext="${user.password}"/>
-            <td th:text="${user.active} ? 'Активен' : 'Неактивен'" />
+                <td th:utext="${user.id}"/>
+                <td th:utext="${user.username}"/>
+                <td th:utext="${user.password}"/>
+                <td th:text="${user.active} ? 'Активен' : 'Неактивен'"/>
 
-            <div  th:each="role : ${user.roles}">
-                <td th:utext="${role}"/>
-            </div>
+                <div th:each="role : ${user.roles}">
+                    <td th:utext="${role}"/>
+                </div>
 
-            <td th:text="${user.person} ? ${user.person.name} : 'UNKNOWN'" />
-            <td th:text="${user.person} ? ${user.person.surname}: 'UNKNOWN'" />
-            <td th:text="${user.person} ? ${user.person.phoneNumber} : 'UNKNOWN'" />
+                <td th:text="${user.person} ? ${user.person.name} : 'UNKNOWN'"/>
+                <td th:text="${user.person} ? ${user.person.surname}: 'UNKNOWN'"/>
+                <td th:text="${user.person} ? ${user.person.phoneNumber} : 'UNKNOWN'"/>
 
-            <td>
-                <form method="post" action="/admin/users/remove">
-                    <input type="hidden" name="userId" th:value="${user.id}"/>
-                    <input
-                            type="hidden"
-                            th:name="${_csrf.parameterName}"
-                            th:value="${_csrf.token}" />
-                    <button type="submit">Удалить</button>
-                </form>
-            </td>
+                <td>
+                    <form method="post" action="/admin/users/remove">
+                        <input type="hidden" name="userId" th:value="${user.id}"/>
+                        <input
+                                type="hidden"
+                                th:name="${_csrf.parameterName}"
+                                th:value="${_csrf.token}"/>
+                        <button class="buttonDelete" type="submit">Удалить</button>
+                    </form>
+                </td>
 
-            <td>
-                <a th:href="users + '/' + edit + '/' + ${user.id}">Изменить</a>
-            </td>
-        </tr>
+                <td>
+                    <a class="buttonEdit" th:href="users + '/' + edit + '/' + ${user.id}">Изменить</a>
+                </td>
+            </tr>
 
-        </tbody>
-    </table>
-    <a href="/admin/users/add">Добавить</a>
+            </tbody>
+        </table>
+        <a class="buttonAdd" href="/admin/users/add">Добавить</a>
+
+    </div>
 </div>
 </body>
 </html>

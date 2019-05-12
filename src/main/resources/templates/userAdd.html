@@ -2,32 +2,77 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Getting Started: Serving Web Content</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/css/user.css"/>
 </head>
 <body>
+<header>
+    <div class="emblem">
+        <div style="background-color: yellow">
+            <img src="/images/frontal-taxi-cab.png">
+        </div>
+        <div style="background-color: yellow"></div>
+        <div style="background-color: yellow">
+            <a href="/main">
+                <button type="button" class="btn btn-dark btn-lg">Меню</button>
+            </a>
 
-<div>
-    <span th:if="${message != null}">Данный пользователь уже существует</span>
-    <form method="post">
-        <input type="text" name="username" placeholder="Введите логин" />
-        <input type="text" name="password" placeholder="Введите пароль"/>
-        <select name="role">
-            <option value="USER"> Пользователь </option>
-            <option value="ADMIN"> Администратор </option>
-            <option value="TAXIDRIVER"> Таксист </option>
-
-        </select>
-        <input type="text" name="name" placeholder="Введите имя"/>
-        <input type="text" name="surname" placeholder="Введите фамилию"/>
-        <input type="text" name="phonenumber" placeholder="Введите номер телефона"/>
-
-        <input
-                type="hidden"
-                th:name="${_csrf.parameterName}"
-                th:value="${_csrf.token}" />
-        <button type="submit">Добавить</button>
-    </form>
+        </div>
+    </div>
+</header>
+<div class="mainBlock" style="background-color: #34383b;border-radius: 50px;padding-top: 80px">
+    <div style="background-color: darkkhaki;margin: 0 auto;width: 600px;border-radius: 20px">
+        <span th:if="${message != null}">Данный пользователь уже существует</span>
+        <form method="post" style="margin-left: 15%;padding-top: 20px">
+            <div class="modal-body">
+                <div class="form-group row" >
+                    <div class="col-sm-10">
+                        <input class="form-control" type="text" name="username" placeholder="Введите логин"/>
+                    </div>
+                </div>
+                <div class="form-group row" >
+                    <div class="col-sm-10">
+                        <input class="form-control" type="text" name="password" placeholder="Введите пароль"/>
+                    </div>
+                </div>
+                <div class="form-group row" >
+                    <div class="col-sm-10">
+                        <select class="form-control" name="role">
+                            <option value="USER"> Пользователь</option>
+                            <option value="ADMIN"> Администратор</option>
+                            <option value="TAXIDRIVER"> Таксист</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row" >
+                    <div class="col-sm-10">
+                        <input class="form-control" type="text" name="name" placeholder="Введите имя"/>
+                    </div>
+                </div>
+                <div class="form-group row" >
+                    <div class="col-sm-10">
+                        <input class="form-control" type="text" name="surname" placeholder="Введите фамилию"/>
+                    </div>
+                </div>
+                <div class="form-group row" >
+                    <div class="col-sm-10">
+                        <input class="form-control" type="text" name="phonenumber" placeholder="Введите номер телефона"/>
+                    </div>
+                </div>
+                <div class="form-group row" >
+                    <div class="col-sm-10">
+                        <input class="form-control"
+                                type="hidden"
+                                th:name="${_csrf.parameterName}"
+                                th:value="${_csrf.token}"/>
+                    </div>
+                </div>
+                <button class="buttonAdd" type="submit">Добавить</button>
+            </div>
+        </form>
+    </div>
 </div>
-
 </body>
 </html>
