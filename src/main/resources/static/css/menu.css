@@ -85,6 +85,7 @@ h1 {
 .navOne {
     height: 70px;
     position: relative;
+    left: 70px;
     top: 20px;
 }
 
@@ -94,32 +95,6 @@ h1 {
     padding: 0;
     margin: 0;
 }
-
-.liOne > ul {
-    opacity: 0;
-    position: absolute;
-    left: 400px;
-    top: 30px;
-    padding: 0;
-    margin: 0;
-    list-style: none;
-}
-
-.liOne:hover > ul{
-    left: 450px;
-    z-index: 5;
-    opacity: 1;
-    height: 50px;
-    transition: all .3s linear;
-    -o-transition: all .3s linear;
-    -moz-transition: all .3s linear;
-    -webkit-transition: all .3s linear;
-}
-
-.liOne ul li a{
-    color: #222222;
-}
-
 .navOne > ul > li {
     float: left;
     position: relative;
@@ -140,80 +115,98 @@ h1 {
     text-transform: uppercase;
     text-decoration: none;
 }
-
-.lamp span {
-    display: block;
-    height: 4px;
-    background: #ee6666;
-    position: relative;
-}
-
-.lamp span:after {
-    bottom: 100%;
-    left: 50%;
-    border: solid transparent;
-    content: " ";
-    height: 0;
-    width: 0;
+.liOne > ul {
+    opacity: 0;
     position: absolute;
-    pointer-events: none;
-    border-color: rgba(238, 102, 102, 0);
-    border-bottom-color: #ee6666;
-    border-width: 4px;
-    margin-left: -4px;
+    left: 400px;
+    top: 30px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
 }
 
-.lamp {
-    position: absolute !important;
+.liOne:hover > ul {
+    left: 350px;
+    z-index: 5;
+    opacity: 1;
+    height: 50px;
+    transition: all .3s linear;
+    -o-transition: all .3s linear;
+    -moz-transition: all .3s linear;
+    -webkit-transition: all .3s linear;
+}
+
+.liOne ul li a {
+    color: #222222;
+}
+.liOne a {
+    text-decoration: none;
+    font-family: 'Ubuntu Condensed', sans-serif;
+    letter-spacing: 2px;
+    position: relative;
+    padding-bottom: 0px;
+    font-size: 15px;
+    text-transform: uppercase;
+    display: inline-block;
+    transition: color .2s;
+    color: white;
+    top: 5px;
+}
+
+.liOne a:hover {
+    color: white;
+}
+
+.liOne ul li a:hover {
+    color: #feb386;
+}
+
+
+
+.aOne:before, .aOne:after {
+    content: "";
+    position: absolute;
     height: 4px;
-    top: 66px;
-    background: #333;
-    transition: all .3s linear;
-    -o-transition: all .3s linear;
-    -moz-transition: all .3s linear;
-    -webkit-transition: all .3s linear;
+    right: 50%;
+    top: 51px;
+    left: 50%;
+    background: #feb386;
+    transition: .8s;
 }
 
-.selected.active > a, .active > a {
-    transition: all .3s linear;
-    -o-transition: all .3s linear;
-    -moz-transition: all .3s linear;
-    -webkit-transition: all .3s linear;
-    color: #fff;
+.aTwo:before, .aTwo:after {
+    content: "";
+    position: absolute;
+    height: 4px;
+    right: 50%;
+    top: 29px;
+    left: 50%;
+    background: #feb386;
+    transition: .8s;
+    color: white;
 }
 
-.credit {
-    text-align: center;
-    margin: 20px 0;
+.mainMenu a:hover:before {
+    left: 0;
+
 }
 
-.blog-link {
-    color: #fff;
+.mainMenu a:hover:after {
+    right: 0;
+
+}
+
+.mainMenu a {
     text-decoration: none;
-    background: #eee;
-    background-size: 40px;
-    line-height: 50px;
+    font-family: 'Ubuntu Condensed', sans-serif;
+    letter-spacing: 2px;
+    position: relative;
+    margin-top: 0px;
+    padding-bottom: 0px;
+    font-size: 15px;
+    text-transform: uppercase;
     display: inline-block;
-    padding: 0 10px;
-    border-radius: 4px;
-    border-bottom: 3px solid #ddd;
-    color: #333;
-    font-family: 'open sans', sans-serif;
-    margin: 10px;
+    transition: color .2s;
 }
 
-.dgithub {
-    color: #fff;
-    text-decoration: none;
-    background: #eee url('https://lh6.googleusercontent.com/-MOW-T0KLZJI/UyR6EIggYkI/AAAAAAAAEbM/el92Uoxz-aI/s50-no/GitHub-Mark.png') no-repeat;
-    background-size: 40px;
-    line-height: 50px;
-    display: inline-block;
-    padding: 0 10px 0 50px;
-    background-position: 5px;
-    border-radius: 4px;
-    border-bottom: 3px solid #ddd;
-    color: #333;
-    font-family: 'open sans', sans-serif;
-    margin: 10px;
-}
+

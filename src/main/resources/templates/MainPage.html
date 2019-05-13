@@ -37,7 +37,7 @@
             <div class="mainMenu" style="background-color: #6c757d">
                 <div class='navOne'>
                     <ul>
-                        <li><a class="aOne" href='#'>Сервис</a></li>
+                        <li><a class="aOne" href='/service'>Сервис</a></li>
                         <li><a class="aOne" th:href="'/orders/' + ${user.id}">Мои заказы</a></li>
                         <li><a class="aOne" href='#'>Контакты</a></li>
                         <div  th:each="role : ${user.roles}">
@@ -45,15 +45,15 @@
                                 <li class="liOne" th:case="${T(taxiservice.entity.Role).ADMIN}"><a  class="aTwo" href="/admin">Меню
                                     администратора</a>
                                     <ul>
-                                        <li><a href="/admin/cars" class="button_hola buttonCars "> <i class="fas fa-taxi"></i> Машины</a></li>
+                                        <li><a  href="/admin/cars" class="button_hola buttonCars "> <i class="fas fa-taxi"></i> Машины</a></li>
                                         <li> <a href="/admin/taxidrivers" class="button_hola buttonCars"><i class="fas fa-user-secret"></i> Таксисты</a></li>
                                         <li><a href="/admin/users" class="button_hola buttonCars"><i class="fas fa-user"></i> Пользователи</a></li>
                                     </ul>
                                 </li>
-                                <li th:case="${T(taxiservice.entity.Role).TAXIDRIVER}"><a class="nav-link"
+                                <li th:case="${T(taxiservice.entity.Role).TAXIDRIVER}"><a style="color: white" class="nav-link"
                                                                                           href="/orders">Меню
                                     таксиста</a></li>
-                                <li th:case="${T(taxiservice.entity.Role).USER}"><a class="nav-link"
+                                <li th:case="${T(taxiservice.entity.Role).USER}"><a style="color: white" class="nav-link"
                                                                                     href="/usermenu">Меню
                                     пользователя</a></li>
                             </div>
@@ -153,7 +153,7 @@
                             type="hidden"
                             th:name="${_csrf.parameterName}"
                             th:value="${_csrf.token}" />
-                    <button type="submit"> Заказать </button>
+                    <button class="btn btn-warning" type="submit"> Заказать </button>
                 </div>
             </form>
         </div>
