@@ -170,3 +170,12 @@ img {
     display: grid;
     grid-template-columns: 1fr 5fr;
 }
+
+
+@media  screen and (min-width: 1920px) {
+    .wrapper {
+        height: 633px;
+        width: 100%;
+        background-size: cover;
+    }
+}

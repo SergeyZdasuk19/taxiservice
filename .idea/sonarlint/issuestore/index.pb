@@ -99,3 +99,17 @@ Z
 *src/main/resources/templates/userEdit.html,4\5\4511294083422a8472ca232b16e25843f1cdb34d
 Z
 *src/main/resources/templates/userList.html,d\8\d8488c1952ea06596e19e4a0e20ca7ede97484ef
+m
+=src/main/java/taxiservice/controller/AdminMenuController.java,5\2\52ccd969ed5683d2da7027d09608bc301d871bd0
+j
+:.idea/dataSources/767a03bc-0f65-4605-b881-ca601efa78ae.xml,f\a\facebb97be693f86cf92e446dbd9f803e74bb700
+k
+;src/main/java/taxiservice/controller/ServiceController.java,3\f\3fec4a96c85c9b2cb8feef6c08a9ebfead8530e0
+Y
+)src/main/resources/static/css/service.css,1\b\1ba2548a60f142451dc8b94e0bd5d0e6501aea16
+_
+/src/main/resources/templates/orderListMain.html,8\2\82733437fca463370fc26f17da64fadc7b90f991
+_
+/src/main/resources/templates/orderUserList.html,3\a\3a425a1c192ea091f044b7871293ed3bfaf14f3f
+Y
+)src/main/resources/templates/service.html,9\4\94fcd5a32267a8acccd6a5110f78a2a47edca4d0
