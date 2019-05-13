@@ -151,5 +151,32 @@ input[type="radio"]:checked + label span.radio::after {
     top: 190px;
     right: 190px;
 }
+.buttonAdd {
+    display: inline-block;
+    margin-left: 5%;
+    margin-top: 1%;
+    padding: 15px 60px 15px 60px;
+    font-size: 20px;
+    font-family: "Arial";
+    border-radius: 3px;
+    border: 0;
+    background: rgb(64, 199, 129);
+    box-shadow: 0 -3px rgb(53, 167, 110) inset;
+    transition: 0.2s;
+    color: white;
+    text-decoration: none;
+}
 
+.buttonAdd:hover {
+    background: rgb(53, 167, 110);
+    color: white;
+    text-decoration: none;
+}
+
+.buttonAdd:active {
+    background: rgb(33, 147, 90);
+    box-shadow: 0 3px rgb(33, 147, 90) inset;
+    color: white;
+    text-decoration: none;
+}
 
