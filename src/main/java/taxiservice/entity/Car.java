@@ -152,4 +152,16 @@ public class Car {
         }
 
     }
+
+    public String checkCarType(int code){
+        switch (code){
+            case 0: return "Ошибка";
+            case 1: return "Ошибка";
+            case 2: return "Одноместная";
+            case 3: return "Двуместная";
+            case 4: return "Трехместная";
+            case 5: return "Многоместная";
+            default: return "Многоместная";
+        }
+    }
 }

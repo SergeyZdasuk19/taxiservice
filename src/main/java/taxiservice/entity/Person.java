@@ -2,6 +2,8 @@ package taxiservice.entity;
 
 import javax.persistence.*;
 import java.util.Objects;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 
 @Entity
@@ -71,5 +73,11 @@ public class Person {
     @Override
     public int hashCode() {
         return Objects.hash(id, name, surname, phoneNumber);
+    }
+
+    boolean checkMobile(String str) {
+        Pattern pat = Pattern.compile("(80|\\+375)(29|44|35)\\d{7}");
+        Matcher match = pat.matcher(str);
+        return match.matches();
     }
 }

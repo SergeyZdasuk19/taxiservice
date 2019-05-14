@@ -79,5 +79,12 @@ public class Point {
     public int hashCode() {
         return Objects.hash(id, x, y, address);
     }
+
+    //checkDistance(new Point(Doble, Double), new Point(Double,Double)
+    public boolean checkDistance(Point firstPoint, Point secPoint){
+        if(firstPoint.getX() - secPoint.getX() > 0 && firstPoint.getY() - secPoint.getY() > 0) return true;
+        else return false;
+    }
+
 }
 
