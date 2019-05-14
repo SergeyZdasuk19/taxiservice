@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import taxiservice.entity.Order;
 import taxiservice.entity.Point;
-import taxiservice.entity.Taxidriver;
 import taxiservice.entity.User;
 import taxiservice.repository.OrderRepo;
 import taxiservice.repository.TaxidriverRepo;
@@ -35,7 +34,7 @@ public class MainController {
 
     @GetMapping("/")
     public String greeting(Map<String, Object> model) {
-        return "hello";
+        return "hello.html";
     }
 
     @GetMapping("/main")
