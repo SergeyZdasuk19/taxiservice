@@ -125,11 +125,13 @@ img {
     animation: 0.5s color infinite;
 }
 
+
+
 .MainButton {
     display: inline-block;
     text-decoration: none;
-    margin-left: 38%;
-    margin-top: 5%;
+    margin-left: 540px;
+    margin-top: 53px;
     padding: 15px 132px 15px 132px;
     font-size: 20px;
     font-family: "Arial";
@@ -150,32 +152,51 @@ img {
     display: grid;
     grid-template-columns: 1fr 5fr;
 }
+
 .slide2 {
     background-color: white;
     display: grid;
     grid-template-columns: 1fr 5fr;
 }
+
 .slide3 {
     background-color: white;
     display: grid;
     grid-template-columns: 1fr 5fr;
 }
+
 .slide4 {
     background-color: white;
     display: grid;
     grid-template-columns: 1fr 5fr;
 }
+
 .slide5 {
     background-color: white;
     display: grid;
     grid-template-columns: 1fr 5fr;
 }
 
-
-@media  screen and (min-width: 1920px) {
+@media screen and (min-width: 1920px) {
     .wrapper {
-        height: 633px;
+        height: 700px;
         width: 100%;
         background-size: cover;
     }
+    .MainButton {
+        display: inline-block;
+        text-decoration: none;
+        margin-left: 790px;
+        margin-top: 55px;
+        padding: 15px 132px 15px 132px;
+        font-size: 20px;
+        font-family: "Arial";
+        border-radius: 3px;
+        border: 0;
+        background: rgb(64, 199, 129);
+        color: white;
+        box-shadow: 0 -3px rgb(53, 167, 110) inset;
+        transition: 0.2s;
+    }
+
 }

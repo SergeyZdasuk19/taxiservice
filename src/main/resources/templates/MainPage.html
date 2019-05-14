@@ -42,10 +42,10 @@
                         <li><a class="aOne" href='#'>Контакты</a></li>
                         <div  th:each="role : ${user.roles}">
                             <div th:switch="${role}">
-                                <li class="liOne" th:case="${T(taxiservice.entity.Role).ADMIN}"><a  class="aTwo" href="/admin">Меню
+                                <li class="liOne" th:case="${T(taxiservice.entity.Role).ADMIN}"><a style="color: white" class="aTwo">Меню
                                     администратора</a>
                                     <ul>
-                                        <li><a  href="/admin/cars" class="button_hola buttonCars "> <i class="fas fa-taxi"></i> Машины</a></li>
+                                        <li><a  href="/admin/cars" class="button_hola buttonCars "><i class="fas fa-taxi"></i> Машины</a></li>
                                         <li> <a href="/admin/taxidrivers" class="button_hola buttonCars"><i class="fas fa-user-secret"></i> Таксисты</a></li>
                                         <li><a href="/admin/users" class="button_hola buttonCars"><i class="fas fa-user"></i> Пользователи</a></li>
                                     </ul>

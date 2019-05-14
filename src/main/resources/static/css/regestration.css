@@ -6,7 +6,8 @@ body {
     background-size: cover;
 
 }
-.title{
+
+.title {
     font-family: Ubuntu-Bold;
     font-size: 28px;
     color: rgb(64, 199, 129);
@@ -15,7 +16,8 @@ body {
     text-transform: uppercase;
     display: block;
 }
-.errorTitle{
+
+.errorTitle {
     font-family: Ubuntu-Bold;
     font-size: 18px;
     color: red;
@@ -24,28 +26,29 @@ body {
     text-transform: uppercase;
     display: block;
 }
-.labelReg{
+
+.labelReg {
     font-family: Ubuntu-Bold;
     font-size: 28px;
-    color:darkorange;
+    color: darkorange;
     text-align: left;
 }
+
 .mainBlockRegistration {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     height: 100vh;
 }
 
-
 .blockSecondRegistration {
-    margin-top: 100px;
+    margin-top: 50px;
     background-color: white;
-    height: 430px;
+    height: 545px;
     border-radius: 15px;
 }
 
 .login {
-    height: 110px;
+    height: 80px;
     display: grid;
     grid-template-columns: 2fr 3fr;
 }
@@ -62,7 +65,7 @@ input[type=text], input[type=password] {
 }
 
 .password {
-    height: 110px;
+    height: 80px;
     display: grid;
     grid-template-columns: 2fr 3fr;
 }
@@ -92,6 +95,42 @@ input[type="text"]::-moz-placeholder {
 .buttonSingIn:active {
     background: rgb(33, 147, 90);
     box-shadow: 0 3px rgb(33, 147, 90) inset;
+}
+
+@media screen and (min-width: 1920px) {
+    .blockSecondRegistration {
+        margin-top: 200px;
+        background-color: white;
+        height: 560px;
+        border-radius: 15px;
+    }
+    .login {
+        height: 80px;
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+    }
+    .password {
+        height: 80px;
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+    }
+    i{
+        margin-left: 30px;
+    }
+    .buttonSingIn {
+        margin-left: 20%;
+        margin-top: 3%;
+        padding: 15px 158px 15px 158px;
+        font-size: 20px;
+        font-family: "Arial";
+        border-radius: 3px;
+        border: 0;
+        background: rgb(64, 199, 129);
+        color: white;
+        box-shadow: 0 -3px rgb(53, 167, 110) inset;
+        transition: 0.2s;
+    }
+
 }
 
 

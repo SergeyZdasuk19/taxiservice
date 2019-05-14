@@ -1,3 +1,4 @@
+
 body {
     margin: 0;
     padding: 0;
@@ -99,4 +100,58 @@ input[type="text"]::-moz-placeholder {
 .buttonRegestration:active {
     background: rgb(33, 147, 90);
     box-shadow: 0 3px rgb(33, 147, 90) inset;
+}
+
+@media screen and (min-width: 1920px){
+    .blockSecondLogin {
+        margin-top: 200px;
+        background-color: white;
+        height: 460px;
+        border-radius: 15px;
+    }
+    .login {
+        height: 80px;
+    }
+    .password {
+        height: 80px;
+    }
+    input[type=text], input[type=password] {
+        border: 0;
+        border-bottom: 1px solid #feb386;
+        text-align: left;
+        margin-left: 40px;
+        margin-top: 1%;
+        padding: 25px 160px 25px 160px;
+        font-size: 20px;
+        font-family: "Arial";
+        color: lightgrey;
+    }
+    .buttonRegestration {
+        display: inline-block;
+        text-decoration: none;
+        margin-left: 20%;
+        margin-top: 3%;
+        padding: 15px 132px 15px 132px;
+        font-size: 20px;
+        font-family: "Arial";
+        border-radius: 3px;
+        border: 0;
+        background: rgb(64, 199, 129);
+        color: white;
+        box-shadow: 0 -3px rgb(53, 167, 110) inset;
+        transition: 0.2s;
+    }
+    .buttonSingIn {
+        margin-left: 20%;
+        margin-top: 5%;
+        padding: 15px 158px 15px 158px;
+        font-size: 20px;
+        font-family: "Arial";
+        border-radius: 3px;
+        border: 0;
+        background: rgb(64, 199, 129);
+        color: white;
+        box-shadow: 0 -3px rgb(53, 167, 110) inset;
+        transition: 0.2s;
+    }
 }

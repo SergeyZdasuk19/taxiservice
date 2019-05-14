@@ -42,7 +42,6 @@ h1 {
 
 .nav > ul > li > ul a {
     display: block;
-    color: #222;
     width: 150px;
     line-height: 50px !important;
     font: 700 14px 'pt sans', sans-serif;
@@ -106,8 +105,8 @@ h1 {
 }
 
 .navOne > ul > li > a {
-    padding: 0 20px;
-    margin-top: -16px;
+    padding: 0 14px 0 0;
+    margin-top: -17px;
     color: #fff;
     display: block;
     line-height: 70px !important;
@@ -126,16 +125,21 @@ h1 {
 }
 
 .liOne:hover > ul {
-    left: 350px;
+    background-color: #6c757d;
+    padding:15px 30px 0 80px;
+    margin-top: 0px;
+    left: 260px;
     z-index: 5;
     opacity: 1;
-    height: 50px;
+    height: 95px;
     transition: all .3s linear;
     -o-transition: all .3s linear;
     -moz-transition: all .3s linear;
     -webkit-transition: all .3s linear;
 }
-
+.liOne ul li {
+    padding-top: 0px;
+}
 .liOne ul li a {
     color: #222222;
 }
@@ -168,10 +172,11 @@ h1 {
     position: absolute;
     height: 4px;
     right: 50%;
-    top: 51px;
+    top: 54px;
     left: 50%;
     background: #feb386;
     transition: .8s;
+    z-index: 15;
 }
 
 .aTwo:before, .aTwo:after {
@@ -179,13 +184,12 @@ h1 {
     position: absolute;
     height: 4px;
     right: 50%;
-    top: 29px;
+    top: 30px;
     left: 50%;
     background: #feb386;
     transition: .8s;
-    color: white;
+    z-index: 15;
 }
-
 .mainMenu a:hover:before {
     left: 0;
 
