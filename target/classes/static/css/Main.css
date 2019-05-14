@@ -2,6 +2,7 @@ body {
     margin: 0;
     padding: 0;
 }
+
 .emblem > img {
     margin-left: 15%;
     margin-top: 2%;
@@ -151,6 +152,7 @@ input[type="radio"]:checked + label span.radio::after {
     top: 190px;
     right: 190px;
 }
+
 .buttonAdd {
     display: inline-block;
     margin-left: 5%;
@@ -180,3 +182,9 @@ input[type="radio"]:checked + label span.radio::after {
     text-decoration: none;
 }
 
+@media screen and (min-width: 1920px) {
+    .znak:hover:before {
+        top: 190px;
+        right: 300px;
+    }
+}

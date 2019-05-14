@@ -77,7 +77,7 @@ input[type="text"]::-moz-placeholder {
 .buttonSingIn {
     margin-left: 9%;
     margin-top: 3%;
-    padding: 15px 158px 15px 158px;
+    padding: 15px 100px 15px 100px;
     font-size: 20px;
     font-family: "Arial";
     border-radius: 3px;
@@ -120,7 +120,7 @@ input[type="text"]::-moz-placeholder {
     .buttonSingIn {
         margin-left: 20%;
         margin-top: 3%;
-        padding: 15px 158px 15px 158px;
+        padding: 15px 110px 15px 130px;
         font-size: 20px;
         font-family: "Arial";
         border-radius: 3px;

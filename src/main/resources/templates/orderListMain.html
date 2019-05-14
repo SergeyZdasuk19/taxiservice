@@ -12,11 +12,11 @@
 
 <header>
     <div class="emblem">
-        <div style="background-color: yellow">
+        <div style="background-color: darkorange">
             <img src="/images/frontal-taxi-cab.png">
         </div>
-        <div style="background-color: yellow"></div>
-        <div style="background-color: yellow">
+        <div style="background-color: darkorange"></div>
+        <div style="background-color: darkorange">
             <a href="/main"><button type="button" class="btn btn-dark btn-lg">Меню</button></a>
         </div>
     </div>
@@ -24,27 +24,27 @@
 
 <div class="mainBlock" style="background-color: #34383b;border-radius: 50px">
     <div style="padding-top: 50px">
-        <span style="color: white">Свободные заказы</span>
+
 
         <div  th:each="role : ${user.roles}">
             <div th:switch="${role}">
                 <span style="color: white" th:case="${T(taxiservice.entity.Role).TAXIDRIVER}">
-                    <a class="nav-link" th:href="'/orders/taxist/' + ${user.id}">Мои заказы</a></span>
+                    <a style="color: white;font-family: 'Arial Black';font-size: 20px;margin-left: 5px" class="nav-link" th:href="'/orders/taxist/' + ${user.id}">Мои заказы</a></span>
                 <span style="color: white" th:case="${T(taxiservice.entity.Role).ADMIN}">
-                    <a class="nav-link" th:href="'/orders/all">Все заказы</a></span>
+                    <a style="color: white;font-family: 'Arial Black';font-size: 20px;margin-left: 5px" class="nav-link" th:href="'/orders/all">Все заказы</a></span>
             </div>
         </div>
-
-        <table border="3" style="margin: 0 auto">
+        <span style="color: white;font-family: 'Arial Black';font-size: 20px;margin-left: 20px">Свободные заказы</span>
+        <table class="table table-bordered" border="1" style="margin: 0 auto">
             <thead>
             <tr>
-                <th>id</th>
-                <th>Откуда</th>
-                <th>Куда</th>
-                <th>Цена</th>
-                <th>Статус</th>
-                <th>Имя заказчика</th>
-                <th>Телефон заказчика</th>
+                <th scope="col">id</th>
+                <th scope="col">Откуда</th>
+                <th scope="col">Куда</th>
+                <th scope="col">Цена</th>
+                <th scope="col">Статус</th>
+                <th scope="col">Имя заказчика</th>
+                <th scope="col">Телефон заказчика</th>
             </tr>
             </thead>
             <tbody>

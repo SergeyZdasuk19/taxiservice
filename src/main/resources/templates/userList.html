@@ -10,11 +10,11 @@
 <body>
 <header>
     <div class="emblem">
-        <div style="background-color: yellow">
+        <div style="background-color: darkorange">
             <img src="/images/frontal-taxi-cab.png">
         </div>
-        <div style="background-color: yellow"></div>
-        <div style="background-color: yellow">
+        <div style="background-color: darkorange"></div>
+        <div style="background-color: darkorange">
             <a href="/main">
                 <button type="button" class="btn btn-dark btn-lg">Меню</button>
             </a>
@@ -22,26 +22,26 @@
         </div>
     </div>
 </header>
-<div class="mainBlock" style="background-color: #34383b;border-radius: 50px">
+<div class="mainBlock mainBlockList">
     <div style="padding-top: 50px">
-        <td th:text="${message} ?: null"/>
-        <table border="3" style="margin: 0 auto">
+        <span style="color: red;font-weight: bold;margin-left: 20px" th:text="${message} ?: null"/>
+        <table class="table table-bordered" border="1" style="margin: 0 auto">
             <thead>
             <tr>
-                <th>id</th>
-                <th>Логин</th>
-                <th>Пароль</th>
-                <th>Статус</th>
-                <th>Роль</th>
-                <th>Имя</th>
-                <th>Фамилия</th>
-                <th>Номер телефона</th>
+                <th scope="col">id</th>
+                <th scope="col">Логин</th>
+                <th scope="col">Пароль</th>
+                <th scope="col">Статус</th>
+                <th scope="col">Роль</th>
+                <th scope="col">Имя</th>
+                <th scope="col">Фамилия</th>
+                <th scope="col">Номер телефона</th>
 
             </tr>
             </thead>
             <tbody>
 
-            <tr th:each="user : ${users}">
+            <tr  th:each="user : ${users}">
 
                 <td th:utext="${user.id}"/>
                 <td th:utext="${user.username}"/>

@@ -11,19 +11,19 @@
     <div class="blockFirstRegistration"></div>
     <div class="blockSecondRegistration">
         <div>
-            <span class="title">Account Registration</span>
+            <span class="title">Регистрация</span>
             <span class="errorTitle" th:if="${message != null}">Данный пользователь уже существует</span>
         </div>
         <form action="/registration" method="post" style="padding-top: 40px">
             <div class="login">
                 <div style="margin-top: 20px"><label class="labelReg"><i style="padding-left: 30px"
                                                                          class="fas fa-user"></i></label></div>
-                <div><input type="text" name="username" placeholder="Login"/></div>
+                <div><input type="text" name="username" placeholder="Логин"/></div>
             </div>
             <div class="password">
                 <div style="margin-top: 20px"><label class="labelReg"><i style="padding-left: 30px"
                                                                          class="fas fa-unlock-alt"></i></label></div>
-                <div><input type="password" name="password" placeholder="Password"/></div>
+                <div><input type="password" name="password" placeholder="Пароль"/></div>
             </div>
             <div class="login">
                 <div style="margin-top: 20px"><label class="labelReg"></label></div>
@@ -42,7 +42,7 @@
                     th:name="${_csrf.parameterName}"
                     th:value="${_csrf.token}"/>
             <div>
-                <input class="buttonSingIn" type="submit" value="Sign In"/>
+                <input class="buttonSingIn" type="submit" value="Зарегистрироваться"/>
             </div>
         </form>
     </div>

@@ -5,18 +5,18 @@
     <title>Title</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="/css/Cars.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/orders.css"/>
 </head>
 <body>
 
 
 <header>
     <div class="emblem">
-        <div style="background-color: yellow">
+        <div style="background-color: darkorange">
             <img src="/images/frontal-taxi-cab.png">
         </div>
-        <div style="background-color: yellow"></div>
-        <div style="background-color: yellow">
+        <div style="background-color: darkorange"></div>
+        <div style="background-color: darkorange">
             <a href="/main"><button type="button" class="btn btn-dark btn-lg">Меню</button></a>
 
         </div>
@@ -25,22 +25,22 @@
 
 <div class="mainBlock" style="background-color: #34383b;border-radius: 50px">
     <div style="padding-top: 50px">
-        <table border="3" style="margin: 0 auto">
+        <table class="table table-bordered" border="1" style="margin: 0 auto">
             <thead>
             <tr>
-                <th>id</th>
-                <th>Откуда</th>
-                <th>Куда</th>
-                <th>Цена</th>
-                <th>Статус</th>
-                <th>Имя таксиста</th>
-                <th>Телефон таксиста</th>
-                <th>Имя заказчика</th>
-                <th>Телефон заказчика</th>
+                <th scope="col">id</th>
+                <th scope="col">Откуда</th>
+                <th scope="col">Куда</th>
+                <th scope="col">Цена</th>
+                <th scope="col">Статус</th>
+                <th scope="col">Имя таксиста</th>
+                <th scope="col">Телефон таксиста</th>
+                <th scope="col">Имя заказчика</th>
+                <th scope="col">Телефон заказчика</th>
             </tr>
             </thead>
             <tbody>
-            <tr th:each="order : ${orders}">
+            <tr  th:each="order : ${orders}">
                 <td th:utext="${order.id}"/>
                 <td th:utext="${order.departurePoint.address}"/>
                 <td th:utext="${order.arrivalPoint.address}"/>
@@ -57,7 +57,7 @@
                         <input type="hidden"
                                th:name="${_csrf.parameterName}"
                                th:value="${_csrf.token}"/>
-                        <button class="buttonDelete" type="submit" >Отмена</button>
+                        <button class="buttonDelete cancel" type="submit" >Отмена</button>
                     </form>
 
                     <form method="post" action="/orders/status/?message=comming">
@@ -65,7 +65,7 @@
                         <input type="hidden"
                                th:name="${_csrf.parameterName}"
                                th:value="${_csrf.token}"/>
-                        <button class="buttonDelete" type="submit" >В пути!</button>
+                        <button class="buttonDelete inWay" type="submit" >В пути!</button>
                     </form>
 
                     <form method="post" action="/orders/status/?message=here">
@@ -73,7 +73,7 @@
                         <input type="hidden"
                                th:name="${_csrf.parameterName}"
                                th:value="${_csrf.token}"/>
-                        <button class="buttonDelete" type="submit" >Я на месте!</button>
+                        <button class="buttonDelete nearYou" type="submit" >Я на месте!</button>
                     </form>
 
                     <form method="post" action="/orders/status/?message=successful">
@@ -81,7 +81,7 @@
                         <input type="hidden"
                                th:name="${_csrf.parameterName}"
                                th:value="${_csrf.token}"/>
-                        <button class="buttonDelete" type="submit" >Заказ выполнен</button>
+                        <button class="buttonDelete complete" type="submit" >Заказ выполнен</button>
                     </form>
                 </td>
 

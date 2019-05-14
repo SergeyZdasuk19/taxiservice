@@ -42,8 +42,44 @@ body {
     margin-top: 1.7%;
 }
 
-
-
+.imgDatabase{
+    margin-left: 50px;
+    margin-top: 5px;
+}
+.imgSecurity{
+    margin-left: 50px;
+    margin-top: 20px;
+}
+.imgGears{
+    margin-left: 50px;
+    margin-top: 50px;
+}
+@media screen and (min-width: 1920px){
+    .imgDatabase{
+        margin-left: 50px;
+        margin-top: 5px;
+    }
+    .imgSecurity{
+        margin-left: 50px;
+        margin-top: 20px;
+    }
+    .imgGears{
+        margin-left: 50px;
+        margin-top: 50px;
+    }
+    span{
+        font-size: 20px;
+    }
+    .blockOne div{
+       padding:20px 0 20px 0;
+    }
+    .blockTwo div{
+        padding:20px 0 20px 0;
+    }
+    .blockThree div{
+        padding:20px 0 20px 0;
+    }
+}
 
 
 

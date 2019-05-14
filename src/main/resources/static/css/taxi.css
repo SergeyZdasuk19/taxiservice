@@ -7,26 +7,39 @@ body {
 }
 
 .mainBlock table {
-    background-color: #feb386;
+    background-color: white;
 }
 
 .mainBlock th {
     padding: 10px 10px 10px 10px;
+    text-align: center;
 }
+
 .mainBlock td {
     text-align: center;
     padding: 10px 10px 10px 10px;
-    font-family: "Arial Black";
-    font-weight: bold;
+    font-family: "Tahoma";
+    vertical-align: middle;
+    color: #6c757d;
+    font-size: large;
 }
+
 .mainBlock tr {
-    background-color: #feb386;
+    background-color: white;
     padding: 10px 10px 10px 10px;
 }
 
 .mainBlock {
-    height: 87.6vh;
+    min-height: 87.6vh;
     margin: 0 90px 0 90px
+}
+.mainBlockEdit{
+    background-color: #34383b;
+    border-radius: 50px;
+    padding-top: 80px;
+}
+.mainBlock > div > table > thead > tr > th {
+    vertical-align: middle;
 }
 
 .emblem div:nth-child(3) button {
@@ -75,7 +88,6 @@ body {
     text-decoration: none;
 }
 
-
 .buttonDelete {
     display: inline-block;
     margin-left: 5%;
@@ -85,7 +97,8 @@ body {
     font-family: "Arial";
     border-radius: 3px;
     border: 0;
-    background: rgb(199, 20, 11);
+    font-weight: bold;
+    background: rgb(255, 186, 93);
     box-shadow: 0 -3px rgb(167, 52, 40) inset;
     transition: 0.2s;
     color: white;
@@ -114,7 +127,7 @@ body {
     font-family: "Arial";
     border-radius: 3px;
     border: 0;
-    background: rgb(199, 161, 24);
+    background: rgb(255, 186, 93);
     box-shadow: 0 -3px rgb(167, 126, 41) inset;
     transition: 0.2s;
     color: white;
@@ -132,4 +145,13 @@ body {
     box-shadow: 0 3px rgb(147, 113, 18) inset;
     color: white;
     text-decoration: none;
+}
+@media screen and (min-width: 1920px){
+    .mainBlockEdit {
+        padding-top: 300px;
+    }
+    .mainBlock {
+        min-height:92.7vh;
+        margin: 0 90px 0 90px;
+    }
 }

@@ -14,30 +14,30 @@ body {
     padding: 10px 10px 10px 10px;
     text-align: center;
 }
+
 .mainBlock td {
     text-align: center;
     padding: 10px 10px 10px 10px;
     font-family: "Tahoma";
+    vertical-align: middle;
     color: #6c757d;
     font-size: large;
-    vertical-align: middle;
 }
+
 .mainBlock tr {
     background-color: white;
     padding: 10px 10px 20px 10px;
 }
+
 .mainBlock > div > table > thead > tr > th {
     vertical-align: middle;
 }
+
 .mainBlock {
     min-height: 87.6vh;
-    margin: 0 90px 0 90px;
+    margin: 0 90px 0 90px
 }
-.mainBlockEdit{
-    background-color: #34383b;
-    border-radius: 50px;
-    padding-top: 80px;
-}
+
 .emblem div:nth-child(3) button {
     margin-left: 60%;
     margin-top: 3.5%;
@@ -84,12 +84,10 @@ body {
     text-decoration: none;
 }
 
-
 .buttonDelete {
     display: inline-block;
     margin-left: 5%;
     margin-top: 1%;
-    padding: 10px 10px 10px 10px;
     font-size: 20px;
     font-weight: bold;
     font-family: "Arial";
@@ -143,10 +141,25 @@ body {
     color: white;
     text-decoration: none;
 }
+
+.cancel {
+    padding: 5px 30px 5px 26px;
+    width: 150px;
+}
+
+.inWay {
+    padding: 5px 30px 5px 26px;
+    width: 150px;
+}
+.nearYou{
+    padding: 0px 30px 0px 26px;
+    width: 150px;
+}
+.complete{
+    padding:0px 30px 0px 26px;
+    width: 150px;
+}
 @media screen and (min-width: 1920px){
-    .mainBlockEdit {
-        padding-top: 300px;
-    }
     .mainBlock {
         min-height:92.7vh;
         margin: 0 90px 0 90px;

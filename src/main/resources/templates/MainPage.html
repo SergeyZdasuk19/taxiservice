@@ -39,7 +39,6 @@
                     <ul>
                         <li><a class="aOne" href='/service'>Сервис</a></li>
                         <li><a class="aOne" th:href="'/orders/' + ${user.id}">Мои заказы</a></li>
-                        <li><a class="aOne" href='#'>Контакты</a></li>
                         <div  th:each="role : ${user.roles}">
                             <div th:switch="${role}">
                                 <li class="liOne" th:case="${T(taxiservice.entity.Role).ADMIN}"><a style="color: white" class="aTwo">Меню
@@ -50,10 +49,10 @@
                                         <li><a href="/admin/users" class="button_hola buttonCars"><i class="fas fa-user"></i> Пользователи</a></li>
                                     </ul>
                                 </li>
-                                <li th:case="${T(taxiservice.entity.Role).TAXIDRIVER}"><a style="color: white" class="nav-link"
+                                <li class="liOne" th:case="${T(taxiservice.entity.Role).TAXIDRIVER}"><a class="aTwo" style="color: white"
                                                                                           href="/orders">Меню
                                     таксиста</a></li>
-                                <li th:case="${T(taxiservice.entity.Role).USER}"><a style="color: white" class="nav-link"
+                                <li class="liOne" th:case="${T(taxiservice.entity.Role).USER}"><a class="aTwo" style="color: white"
                                                                                     href="/usermenu">Меню
                                     пользователя</a></li>
                             </div>
@@ -75,7 +74,7 @@
                                         <input type="hidden"
                                                th:name="${_csrf.parameterName}"
                                                th:value="${_csrf.token}"/>
-                                        <input class="btn btn-danger" type="submit" value="Sign Out"/>
+                                        <input class="btn btn-danger" type="submit" value="Выход"/>
                                     </form>
                                 </a></li>
 
