@@ -54,15 +54,18 @@ body {
 #map input[type=text] {
     padding-top: 50px;
     padding-bottom: 50px;
-    padding-right: 100px;
-    text-align: left;
 }
 
 #map .ymaps-2-1-73-control-popup__content {
     width: 300px;
 
 }
-
+#map .ymaps-2-1-74-route-panel-input__location-spinner__circle{
+    display: none;
+}
+#map .ymaps-2-1-74-route-panel-input__location{
+    display: none;
+}
 #map .ymaps-2-1-73-route-panel-input__location {
     background-image: none;
 }

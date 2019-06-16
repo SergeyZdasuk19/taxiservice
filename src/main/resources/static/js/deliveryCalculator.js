@@ -5,7 +5,6 @@ $(document).ready(function () {
         $('input[name$="placeFrom"]').val($('input[placeholder$="Откуда"]').val());
         $('input[name$="placeTo"]').val($('input[placeholder$="Куда"]').val());
     });
-
 });
 
 
@@ -136,7 +135,7 @@ function init(latitude, longitude) {
         });
 
     });
-    setTimeout(change(),1000);
+    setTimeout(change(), 1000);
     // change();
     changeTextOfInput();
 
@@ -148,7 +147,7 @@ function init(latitude, longitude) {
         if ($('input[placeholder$="Откуда"]').val() == '' && $('input[placeholder$="Куда"]').val() == '') {
         }
         else {
-            setTimeout(change(),1000);
+            setTimeout(change(), 1000);
             changeTextOfInput();
         }
 
